@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Rakesh Porika</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* --- GENERAL SETTINGS --- */
+        html, body {
+            overflow: hidden; /* Clean look for home page */
+            height: 100%;
+        }
+
+        /* --- NAVIGATION STYLES --- */
+        .screenshot-gradient {
+            background: linear-gradient(90deg, #0056b3 0%, #2ac8eb 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+            width: fit-content;
+        }
+
+        .nav-item {
+            text-decoration: none;
+            color: rgb(29, 84, 133);
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-left: 2rem;
+            padding-bottom: 4px;
+            transition: all 0.2s ease-in-out;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-item:hover {
+            background: linear-gradient(90deg, #0056b3 0%, #2ac8eb 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-item.active {
+            color: #0056b3;
+            border-bottom: 2px solid #0056b3;
+        }
+
+        /* --- HERO SECTION LAYOUT (Restored) --- */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            padding: 0 10%;
+            gap: 5rem; /* Space between text and image */
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Restored Font Sizes and Styling */
+        .hero h1 {
+            font-size: 5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        /* --- FADED IMAGE STYLE (Kept from new changes) --- */
+        .hero-image {
+            flex-shrink: 0;
+            width: 450px;
+            height: 450px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+            
+            /* The Fade Effect (Sides & Corners) */
+            -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 70%);
+            mask-image: radial-gradient(ellipse at center, black 40%, transparent 70%);
+            
+            opacity: 0.95;
+            transition: transform 0.3s ease;
+        }
+
+        .hero-image img:hover {
+            transform: scale(1.02);
+            opacity: 1;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                gap: 2rem;
+                padding-top: 100px;
+            }
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            .hero-image {
+                width: 300px;
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <canvas id="webgl"></canvas>
+
+    <nav>
+        <a href="index.html" class="logo screenshot-gradient">Rakesh Porika.</a>
+        
+        <div class="nav-links">
+            <a href="index.html" class="nav-item active">Home</a>
+            <a href="about.html" class="nav-item">About</a>
+            <a href="research.html" class="nav-item">Research</a>
+            <a href="projects.html" class="nav-item">Projects</a>
+            <a href="experience.html" class="nav-item">Experience</a>
+            <a href="education.html" class="nav-item">Education</a>
+        </div>
+    </nav>
+    
+    <div class="hero">
+        
+        <div class="hero-text">
+            <h1 class="screenshot-gradient">Porika<br>Rakesh</h1>
+            
+            <p style="color: #555; font-weight: 300; font-size: 1.25rem; margin-top: 1rem; margin-bottom: 0.2rem;">
+                PhD Scholar at IIT Gandhinagar
+            </p>
+            <p style="color: #777; font-weight: 300; font-size: 1.25rem; margin-top: 0;">
+                BCI | Machine Learning | Deep Learning
+            </p>
+        </div>
+
+        <div class="hero-image">
+            <img src="PIC.jpg" alt="Rakesh Porika">
+        </div>
+
+    </div>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@0.154.0/build/three.module.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.154.0/examples/jsm/"
+            }
+        }
+    </script>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>

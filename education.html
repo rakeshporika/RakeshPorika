@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education | Rakesh Porika</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* --- NAVIGATION STYLES (MATCHING HOME) --- */
+        .screenshot-gradient {
+            background: linear-gradient(90deg, #0056b3 0%, #2ac8eb 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+            width: fit-content; /* Ensures gradient fits text width */
+        }
+
+        .nav-item {
+            text-decoration: none;
+            color: rgb(29, 84, 133);
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-left: 2rem;
+            padding-bottom: 4px;
+            transition: all 0.2s ease-in-out;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-item:hover {
+            background: linear-gradient(90deg, #0056b3 0%, #2ac8eb 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-item.active {
+            color: #0056b3;
+            border-bottom: 2px solid #0056b3;
+        }
+
+        /* --- EDUCATION SPECIFIC LAYOUT --- */
+        .page-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 140px 20px 60px; /* Top padding to clear fixed nav */
+            position: relative;
+            z-index: 2; /* Sit above the 3D canvas */
+        }
+
+        .page-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            /* Gradient applied via class below */
+        }
+
+        /* Timeline Item Container */
+        .edu-item {
+            display: flex;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        /* Date Column */
+        .edu-date {
+            min-width: 140px;
+            font-weight: 600;
+            color: #0056b3; /* Brand Blue */
+            font-size: 1.1rem;
+            padding-top: 4px;
+            text-align: right;
+            padding-right: 25px;
+            border-right: 2px solid rgba(0, 86, 179, 0.2);
+        }
+
+        /* Content Column */
+        .edu-content {
+            padding-left: 25px;
+            flex: 1;
+        }
+
+        .edu-degree {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #222;
+            margin: 0 0 5px 0;
+        }
+
+        .edu-school {
+            font-size: 1.2rem;
+            color: #555;
+            margin: 0 0 10px 0;
+            font-weight: 500;
+        }
+
+        .edu-location {
+            font-size: 0.95rem;
+            color: #888;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .edu-item {
+                flex-direction: column;
+            }
+            .edu-date {
+                text-align: left;
+                border-right: none;
+                border-left: 3px solid #0056b3; /* Move line to left */
+                padding-left: 15px;
+                padding-bottom: 10px;
+                margin-bottom: 10px;
+            }
+            .edu-content {
+                padding-left: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <canvas id="webgl"></canvas>
+
+    <nav>
+        <a href="index.html" class="logo screenshot-gradient">Rakesh Porika.</a>
+        
+        <div class="nav-links">
+            <a href="index.html" class="nav-item">Home</a>
+            <a href="about.html" class="nav-item">About</a>
+            <a href="research.html" class="nav-item">Research</a>
+            <a href="projects.html" class="nav-item">Projects</a>
+            <a href="experience.html" class="nav-item">Experience</a>
+            <a href="education.html" class="nav-item active">Education</a>
+        </div>
+    </nav>
+    
+    <div class="page-container">
+        <h1 class="page-title screenshot-gradient">Education</h1>
+
+        <div class="edu-item">
+            <div class="edu-date">2025 - 2029</div>
+            <div class="edu-content">
+                <h3 class="edu-degree">PhD in Computer Science & Engineering</h3>
+                <h4 class="edu-school">Indian Institute of Technology Gandhinagar</h4>
+                <div class="edu-location">Gandhinagar, Gujarat, India</div>
+            </div>
+        </div>
+
+        <div class="edu-item">
+            <div class="edu-date">2019 - 2024</div>
+            <div class="edu-content">
+                <h3 class="edu-degree">B.Tech + M.Tech (Dual Degree) in CSE</h3>
+                <h4 class="edu-school">National Institute of Technology Hamirpur</h4>
+                <div class="edu-location">Hamirpur, Himachal Pradesh, India</div>
+            </div>
+        </div>
+
+        <div class="edu-item">
+            <div class="edu-date">2017 - 2019</div>
+            <div class="edu-content">
+                <h3 class="edu-degree">Intermediate (MPC)</h3>
+                <h4 class="edu-school">Narayana IIT Academy</h4>
+                <div class="edu-location">TCS Adibattla, Hyderabad</div>
+                <p style="margin-top:8px; color:#666; font-size:0.95rem;">Specialized in Mathematics, Physics, and Chemistry.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@0.154.0/build/three.module.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.154.0/examples/jsm/"
+            }
+        }
+    </script>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience | Rakesh Porika</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* --- ENABLE SCROLLING --- */
+        html, body {
+            overflow-y: auto !important;
+            height: auto !important;
+        }
+
+        /* --- UNIFIED GRADIENT STYLE --- */
+        .screenshot-gradient {
+            background: linear-gradient(90deg, #0056b3 0%, #2ac8eb 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+            width: fit-content;
+        }
+
+        /* --- NAVIGATION STYLES --- */
+        .nav-item {
+            text-decoration: none;
+            color: rgb(29, 84, 133);
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-left: 2rem;
+            padding-bottom: 4px;
+            transition: all 0.2s ease-in-out;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-item:hover {
+            background: linear-gradient(90deg, #0056b3 0%, #2ac8eb 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-item.active {
+            color: #0056b3;
+            border-bottom: 2px solid #0056b3;
+        }
+
+        /* --- EXPERIENCE TIMELINE LAYOUT --- */
+        .page-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 140px 20px 60px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .section-heading {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-top: 3.5rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Timeline Item Container */
+        .exp-item {
+            display: flex;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        /* Date Column (Fixed Width for Perfect Alignment) */
+        .exp-date {
+            width: 170px; /* Fixed width to ensure vertical line alignment */
+            flex-shrink: 0; /* Prevents column from shrinking */
+            font-weight: 600;
+            color: #0056b3; /* Brand Blue */
+            font-size: 1.05rem;
+            padding-top: 15px; 
+            text-align: left; 
+            padding-right: 25px;
+            border-right: 2px solid rgba(0, 86, 179, 0.2);
+        }
+
+        /* Content Column (Right) - GLASS CARD STYLE */
+        .exp-content {
+            flex: 1;
+            margin-left: 20px; 
+            
+            /* Glass Background */
+            background: rgba(255, 255, 255, 0.4); 
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 16px; 
+            
+            padding: 1.5rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .exp-content:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.55);
+            box-shadow: 0 8px 20px rgba(0, 86, 179, 0.1);
+        }
+
+        /* Icon Styling */
+        .exp-icon {
+            color: #0056b3;
+            font-size: 1.1rem;
+            margin-right: 10px;
+            width: 24px;
+            text-align: center;
+            display: inline-block;
+        }
+
+        .exp-role {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #222;
+            margin: 0 0 5px 0;
+            line-height: 1.3;
+        }
+
+        .exp-org {
+            font-size: 1.05rem;
+            color: #555;
+            margin: 0 0 10px 0;
+            font-weight: 500;
+            font-style: italic;
+        }
+
+        .exp-desc {
+            font-size: 1rem;
+            color: #444;
+            line-height: 1.6;
+        }
+
+        .exp-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            color: #0056b3;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-top: 8px;
+            transition: color 0.2s;
+        }
+
+        .exp-link:hover {
+            text-decoration: underline;
+            color: #003d80;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .exp-item {
+                flex-direction: column;
+            }
+            .exp-date {
+                width: 100%; /* Reset width on mobile */
+                text-align: left;
+                border-right: none;
+                border-left: 3px solid #0056b3;
+                padding-left: 15px;
+                padding-bottom: 10px;
+                padding-top: 0;
+                margin-bottom: 10px;
+            }
+            .exp-content {
+                margin-left: 0;
+                margin-top: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <canvas id="webgl"></canvas>
+
+    <nav>
+        <a href="index.html" class="logo screenshot-gradient">Rakesh Porika.</a>
+        
+        <div class="nav-links">
+            <a href="index.html" class="nav-item">Home</a>
+            <a href="about.html" class="nav-item">About</a>
+            <a href="research.html" class="nav-item">Research</a>
+            <a href="projects.html" class="nav-item">Projects</a>
+            <a href="experience.html" class="nav-item active">Experience</a>
+            <a href="education.html" class="nav-item">Education</a>
+        </div>
+    </nav>
+    
+    <div class="page-container">
+        <h1 class="page-title screenshot-gradient">Experience & Activities</h1>
+
+        <h2 class="section-heading screenshot-gradient">Work Experience</h2>
+
+        <div class="exp-item">
+            <div class="exp-date">Jan 2026 - May 2026</div>
+            <div class="exp-content">
+                <h3 class="exp-role"><i class="fas fa-code exp-icon"></i>Teaching Assistant (Databases)</h3>
+                <h4 class="exp-org">IIT Gandhinagar | Instructor: Dr. Yogesh K. Meena</h4>
+                <p class="exp-desc">
+                    Assisting in the Databases course. Responsible for facilitating lab sessions, grading assignments, and clarifying student doubts.
+                </p>
+            </div>
+        </div>
+
+        <div class="exp-item">
+            <div class="exp-date">Aug 2025 - Dec 2025</div>
+            <div class="exp-content">
+                <h3 class="exp-role"><i class="fas fa-code exp-icon"></i>Teaching Assistant (DSA 1)</h3>
+                <h4 class="exp-org">IIT Gandhinagar | Instructor: Dr. Balagopal Komarath</h4>
+                <p class="exp-desc">
+                    Assisting in the Data Structures and Algorithms 1 course. Responsible for facilitating lab sessions, grading assignments, and clarifying student doubts.
+                </p>
+            </div>
+        </div>
+
+        <div class="exp-item">
+            <div class="exp-date">Jul 2023 - Dec 2025</div>
+            <div class="exp-content">
+                <h3 class="exp-role"><i class="fas fa-code exp-icon"></i>Teaching Assistant (DSA 1)</h3>
+                <h4 class="exp-org">IIT Gandhinagar | Instructor: Dr. Balagopal Komarath</h4>
+                <p class="exp-desc">
+                    Assisting in the Data Structures and Algorithms 1 course. Responsible for facilitating lab sessions, grading assignments, and clarifying student doubts.
+                </p>
+            </div>
+        </div>
+
+        <div class="exp-item">
+            <div class="exp-date">Jul 2023 - Jun 2024</div>
+            <div class="exp-content">
+                <h3 class="exp-role"><i class="fas fa-microchip exp-icon"></i>Teaching Assistant (ToC & Digital Electronics)</h3>
+                <h4 class="exp-org">NIT Hamirpur | Instructor: Dr. Sangeetha Sharma</h4>
+                <p class="exp-desc">
+                    Assisted in Theory of Computation and Digital Electronics courses. Managed student evaluations and conducted tutorial sessions.
+                </p>
+            </div>
+        </div>
+
+        <h2 class="section-heading screenshot-gradient">Certifications & Training</h2>
+
+        <div class="exp-item">
+            <div class="exp-date">Jan 2025</div>
+            <div class="exp-content">
+                <h3 class="exp-role"><i class="fas fa-dna exp-icon"></i>Bioinformatics Foundation</h3>
+                <h4 class="exp-org">UDEMY</h4>
+                <p class="exp-desc">Developed a strong foundation in Bioinformatics concepts, algorithms, and tools.</p>
+                <a href="https://drive.google.com/file/d/1NBn0jitQsgd3voXUcmbdys3DsyQn-Frr/view?usp=sharing" target="_blank" class="exp-link">
+                    View Certificate <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="exp-item">
+            <div class="exp-date">Aug - Sep 2022</div>
+            <div class="exp-content">
+                <h3 class="exp-role"><i class="fas fa-cloud exp-icon"></i>Certified Cloud Computing Trainee</h3>
+                <h4 class="exp-org">Acmegrade, IIT Bombay</h4>
+                <p class="exp-desc">Completed intensive training in cloud infrastructure and services.</p>
+                <a href="https://drive.google.com/file/d/1m9t3AzptlVoq4H8zt2Vyy14WbhMEGglP/view?usp=sharing" target="_blank" class="exp-link">
+                    View Certificate <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i>
+                </a>
+            </div>
+        </div>
+
+        <h2 class="section-heading screenshot-gradient">Achievements</h2>
+
+        <div class="exp-item">
+            <div class="exp-date">2024</div>
+            <div class="exp-content">
+                <h3 class="exp-role"><i class="fas fa-user-graduate exp-icon"></i>PhD Scholar Selection</h3>
+                <h4 class="exp-org">IISER Pune, Maharashtra</h4>
+                <p class="exp-desc">Selected as a full-time PhD scholar.</p>
+                <a href="https://drive.google.com/file/d/1updAOtijoNXXOE431fkO_hHqioA9kMCW/view?usp=drive_link" target="_blank" class="exp-link">
+                    View Proof <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="exp-item">
+            <div class="exp-date">2024</div>
+            <div class="exp-content">
+                <h3 class="exp-role"><i class="fas fa-chalkboard-teacher exp-icon"></i>Assistant Professor Selection</h3>
+                <h4 class="exp-org">Galgotias University, UP</h4>
+                <p class="exp-desc">Selected for the position of Assistant Professor.</p>
+                <a href="https://drive.google.com/file/d/1g5uvwcEr0TOuh5V40NOdOdd1ia7Gd0aG/view?usp=drive_link" target="_blank" class="exp-link">
+                    View Proof <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="exp-item">
+            <div class="exp-date">2023</div>
+            <div class="exp-content">
+                <h3 class="exp-role"><i class="fas fa-train exp-icon"></i>Senior Technical Associate (STA)</h3>
+                <h4 class="exp-org">South Western Railways, Indian Railways</h4>
+                <p class="exp-desc">Selected for the STA position.</p>
+            </div>
+        </div>
+
+        <div class="exp-item">
+            <div class="exp-date">2023</div>
+            <div class="exp-content">
+                <h3 class="exp-role"><i class="fas fa-certificate exp-icon"></i>GATE Qualified</h3>
+                <p class="exp-desc">Qualified GATE exam and secured MHRD funding for M.Tech studies.</p>
+            </div>
+        </div>
+
+        <h2 class="section-heading screenshot-gradient">Volunteer Activities</h2>
+
+        <div class="exp-item">
+            <div class="exp-date">HealthX-2026</div>
+            <div class="exp-content">
+                <h3 class="exp-role"><i class="fas fa-heartbeat exp-icon"></i>Co-ordinator</h3>
+                <p class="exp-desc">Organized the 'Advancements in Health and Neuro Computing' workshop.</p>
+            </div>
+        </div>
+
+        <div class="exp-item">
+            <div class="exp-date">RAAI-2024</div>
+            <div class="exp-content">
+                <h3 class="exp-role"><i class="fas fa-robot exp-icon"></i>Co-ordinator</h3>
+                <p class="exp-desc">Organized the 'Recent Advancements in Artificial Intelligence and IoT' workshop.</p>
+            </div>
+        </div>
+
+        <div class="exp-item">
+            <div class="exp-date">MIND-2024</div>
+            <div class="exp-content">
+                <h3 class="exp-role"><i class="fas fa-users exp-icon"></i>Volunteer</h3>
+                <p class="exp-desc">Volunteered for the International Conference on Machine Learning, Image Processing, Network Security, and Data Sciences.</p>
+            </div>
+        </div>
+
+        <div class="exp-item">
+            <div class="exp-date">Yogic Self</div>
+            <div class="exp-content">
+                <h3 class="exp-role"><i class="fas fa-spa exp-icon"></i>Convener</h3>
+                <p class="exp-desc">Managed and organized yoga workshops for over 100 students.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@0.154.0/build/three.module.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.154.0/examples/jsm/"
+            }
+        }
+    </script>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>

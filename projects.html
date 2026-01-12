@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Rakesh Porika</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* --- ENABLE SCROLLING --- */
+        html, body {
+            overflow-y: auto !important;
+            height: auto !important;
+        }
+
+        /* --- NAVIGATION STYLES --- */
+        .screenshot-gradient {
+            background: linear-gradient(90deg, #0056b3 0%, #2ac8eb 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+            width: fit-content;
+        }
+
+        .nav-item {
+            text-decoration: none;
+            color: rgb(29, 84, 133);
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-left: 2rem;
+            padding-bottom: 4px;
+            transition: all 0.2s ease-in-out;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-item:hover {
+            background: linear-gradient(90deg, #0056b3 0%, #2ac8eb 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-item.active {
+            color: #0056b3;
+            border-bottom: 2px solid #0056b3;
+        }
+
+        /* --- PROJECT TIMELINE LAYOUT --- */
+        .page-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 140px 20px 60px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+        }
+
+        /* Timeline Item Container */
+        .proj-item {
+            display: flex;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        /* Date Column (Left) */
+        .proj-date {
+            min-width: 140px;
+            font-weight: 600;
+            color: #0056b3;
+            font-size: 1.1rem;
+            padding-top: 15px; /* Aligns with the box padding */
+            text-align: right;
+            padding-right: 25px;
+            
+            /* The Timeline Line */
+            border-right: 2px solid rgba(0, 86, 179, 0.2); 
+        }
+
+        /* Content Column (Right) - NOW WITH GLASS BACKGROUND */
+        .proj-content {
+            flex: 1;
+            margin-left: 20px; /* Space from the timeline line */
+            
+            /* Glass Background upto the text */
+            background: rgba(255, 255, 255, 0.4); 
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 16px; /* Rounded corners */
+            
+            padding: 1.5rem; /* Padding inside the glass box */
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        /* Hover Effect for the Content Box */
+        .proj-content:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.55);
+            box-shadow: 0 8px 20px rgba(0, 86, 179, 0.1);
+        }
+
+        /* Icon Styling */
+        .proj-icon {
+            color: #0056b3;
+            font-size: 1.2rem;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+
+        .proj-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #222;
+            margin: 0 0 5px 0;
+            line-height: 1.3;
+        }
+
+        .proj-venue {
+            font-size: 1.1rem;
+            color: #555;
+            margin: 0 0 10px 0;
+            font-weight: 500;
+            font-style: italic;
+        }
+
+        .proj-desc {
+            font-size: 1rem;
+            color: #444;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        .proj-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            color: #0056b3;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-top: 4px;
+            transition: color 0.2s;
+        }
+
+        .proj-link:hover {
+            text-decoration: underline;
+            color: #003d80;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .proj-item {
+                flex-direction: column;
+            }
+            .proj-date {
+                text-align: left;
+                border-right: none;
+                border-left: 3px solid #0056b3;
+                padding-left: 15px;
+                padding-bottom: 10px;
+                padding-top: 0;
+                margin-bottom: 10px;
+            }
+            .proj-content {
+                margin-left: 0;
+                margin-top: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <canvas id="webgl"></canvas>
+
+    <nav>
+        <a href="index.html" class="logo screenshot-gradient">Rakesh Porika.</a>
+        
+        <div class="nav-links">
+            <a href="index.html" class="nav-item">Home</a>
+            <a href="about.html" class="nav-item">About</a>
+            <a href="research.html" class="nav-item">Research</a>
+            <a href="projects.html" class="nav-item active">Projects</a>
+            <a href="experience.html" class="nav-item">Experience</a>
+            <a href="education.html" class="nav-item">Education</a>
+        </div>
+    </nav>
+    
+    <div class="page-container">
+        <h1 class="page-title screenshot-gradient">Projects</h1>
+
+        <div class="proj-item">
+            <div class="proj-date">Aug - Dec 2025</div>
+            <div class="proj-content">
+                <h3 class="proj-title"><i class="fas fa-brain proj-icon"></i>Interactive Tool for Visualizing Software Architecture Evolution using LLM</h3>
+                <h4 class="proj-venue">IIT Gandhinagar</h4>
+                <p class="proj-desc">
+                    Developing a software Tool-Kit that extracts architecture-related information across multiple versions and creates an interactive timeline visualization to show how the architecture evolved and uses a LLM to summarize detected changes.
+                </p>
+                <a href="https://archviz-saner.streamlit.app/" target="_blank" class="proj-link">
+                    View Live Tool <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="proj-item">
+            <div class="proj-date">Jan - May 2023</div>
+            <div class="proj-content">
+                <h3 class="proj-title"><i class="fas fa-desktop proj-icon"></i>Digital Twin Monitoring Software</h3>
+                <h4 class="proj-venue">NIT Hamirpur</h4>
+                <p class="proj-desc">
+                    Developed a digital twin monitoring software to visualize and monitor lab environments remotely. 
+                    The software uses real-time data from sensors to create a digital replica of the lab, enabling users to identify and resolve problems quickly and efficiently.
+                </p>
+            </div>
+        </div>
+
+        <div class="proj-item">
+            <div class="proj-date">Aug - Dec 2022</div>
+            <div class="proj-content">
+                <h3 class="proj-title"><i class="fas fa-network-wired proj-icon"></i>Anomaly Detection in Industrial IoT</h3>
+                <h4 class="proj-venue">NIT Hamirpur</h4>
+                <p class="proj-desc">
+                    Developed a machine learning-based anomaly detection system for Industrial Internet of Things (IIoT) devices using Random Forest and LSTM algorithms. 
+                    The system is scalable, efficient, and designed for deployment on edge devices or in the cloud.
+                </p>
+            </div>
+        </div>
+
+        <div class="proj-item">
+            <div class="proj-date">Oct - Dec 2022</div>
+            <div class="proj-content">
+                <h3 class="proj-title"><i class="fas fa-x-ray proj-icon"></i>COVID-19 Detection Model using Chest X-Rays</h3>
+                <h4 class="proj-venue">NIT Hamirpur</h4>
+                <p class="proj-desc">
+                    Utilized a Convolutional Neural Network (CNN) to extract features from chest X-rays and trained a robust model to predict the presence of COVID-19 with high accuracy.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@0.154.0/build/three.module.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.154.0/examples/jsm/"
+            }
+        }
+    </script>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
