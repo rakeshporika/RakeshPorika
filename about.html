@@ -11,173 +11,136 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
-        /* --- ENABLE SCROLLING --- */
+        /* --- GENERAL --- */
         html, body {
             overflow-y: auto !important;
             height: auto !important;
+            font-family: 'Inter', sans-serif;
+            -ms-overflow-style: none; scrollbar-width: none;
+        }
+        body::-webkit-scrollbar { display: none; }
+
+        /* --- APPLE-STYLE ANIMATION --- */
+        @keyframes softReveal {
+            0% { opacity: 0; transform: translateY(30px) scale(0.98); filter: blur(10px); }
+            100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
         }
 
-        /* --- NAVIGATION STYLES --- */
+        .reveal-1 { animation: softReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: 0.1s; opacity: 0; }
+        .reveal-2 { animation: softReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: 0.2s; opacity: 0; }
+        .reveal-3 { animation: softReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: 0.3s; opacity: 0; }
+        .reveal-4 { animation: softReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: 0.4s; opacity: 0; }
+
         .screenshot-gradient {
             background: linear-gradient(90deg, #0056b3 0%, #2ac8eb 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            -webkit-text-fill-color: transparent;
-            width: fit-content;
+            -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; width: fit-content;
         }
 
+        /* --- NAVIGATION --- */
+        nav {
+            display: flex; justify-content: space-between; align-items: center; padding: 20px 40px;
+            position: fixed; width: 100%; top: 0; z-index: 1000;
+            background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            animation: softReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .logo { font-size: 1.5rem; font-weight: 700; text-decoration: none; }
+        .nav-links { display: flex; align-items: center; }
         .nav-item {
-            text-decoration: none;
-            color: rgb(29, 84, 133);
-            font-weight: 600;
-            font-size: 0.95rem;
-            margin-left: 2rem;
-            padding-bottom: 4px;
-            transition: all 0.2s ease-in-out;
-            border-bottom: 2px solid transparent;
+            text-decoration: none; color: rgb(29, 84, 133); font-weight: 600; font-size: 0.95rem; margin-left: 2rem;
+            padding-bottom: 4px; transition: all 0.2s ease-in-out; border-bottom: 2px solid transparent;
         }
+        .nav-item:hover { background: linear-gradient(90deg, #0056b3 0%, #2ac8eb 100%); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
+        .nav-item.active { color: #0056b3; border-bottom: 2px solid #0056b3; }
+        .hamburger { display: none; font-size: 1.6rem; color: #0056b3; cursor: pointer; }
 
-        .nav-item:hover {
-            background: linear-gradient(90deg, #0056b3 0%, #2ac8eb 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .nav-item.active {
-            color: #0056b3;
-            border-bottom: 2px solid #0056b3;
-        }
-
-        /* --- ABOUT PAGE LAYOUT (Timeline Style) --- */
+        /* --- PAGE CONTAINER --- */
         .page-container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 100px 20px 60px;
-            position: relative;
+            max-width: 1100px; 
+            margin: 0 auto; 
+            padding: 100px 20px 60px; 
+            position: relative; 
             z-index: 2;
         }
+        .page-title { font-size: 3rem; font-weight: 700; margin-bottom: 3rem; }
 
-        .page-title {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 3rem;
+        /* --- ABOUT CONTENT STYLES (UPDATED for Cloud Look) --- */
+        .about-item { display: flex; margin-bottom: 3rem; position: relative; }
+        
+        .about-icon-col { 
+            min-width: 80px; 
+            display: flex; 
+            justify-content: flex-end; 
+            padding-top: 2.2rem; 
+            padding-right: 25px; 
+            border-right: 2px solid rgba(0, 86, 179, 0.1); /* Lighter divider */
         }
-
-        /* Container for each section */
-        .about-item {
-            display: flex;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-
-        /* Icon Column (Left) - Replaces Date Column */
-        .about-icon-col {
-            min-width: 80px; /* Narrower than date col */
-            display: flex;
-            justify-content: flex-end; /* Align icon near the line */
-            padding-top: 20px;
-            padding-right: 25px;
-            border-right: 2px solid rgba(0, 86, 179, 0.2); 
-        }
-
-        .about-icon-circle {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.8);
-            border: 1px solid #0056b3;
-            color: #0056b3;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-        }
-
-        /* Content Column (Right) - Glass Card */
+        
+        .about-icon-circle { width: 40px; height: 40px; border-radius: 50%; background: rgba(255, 255, 255, 0.8); border: 1px solid #0056b3; color: #0056b3; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        
+        /* THE CLOUD EFFECT */
         .about-content {
-            flex: 1;
-            margin-left: 20px;
+            flex: 1; 
+            margin-left: 20px; 
             
-            background: rgba(255, 255, 255, 0.4); 
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            border-radius: 16px; 
+            /* Transparent "Cloud" Background */
+            background: rgba(255, 255, 255, 0.35); 
+            
+            /* Strong Blur for Liquid effect */
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            
+            /* No Border (Box Removed) */
+            border: none; 
+            
+            /* Soft, Rounded Edges */
+            border-radius: 30px; 
             
             padding: 2rem;
-            transition: transform 0.2s, box-shadow 0.2s;
+            
+            /* Soft Shadow Lift */
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            
+            transition: transform 0.3s ease, background 0.3s ease;
         }
-
-        .about-content:hover {
-            transform: translateY(-2px);
-            background: rgba(255, 255, 255, 0.55);
-            box-shadow: 0 8px 20px rgba(0, 86, 179, 0.1);
+        
+        .about-content:hover { 
+            transform: translateY(-3px); 
+            background: rgba(255, 255, 255, 0.55); /* Slightly clearer on hover */
+            box-shadow: 0 15px 50px rgba(0, 86, 179, 0.1); 
         }
-
-        .about-heading {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #222;
-            margin-bottom: 1rem;
-            /* Gradient applied via class */
-        }
-
-        .bio-text {
-            font-size: 1.05rem;
-            line-height: 1.7;
-            color: #444;
-            font-weight: 400;
-        }
-
-        /* Skills Tags */
-        .skills-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 5px;
-        }
-
+        
+        .about-heading { font-size: 1.5rem; font-weight: 700; color: #222; margin-bottom: 1rem; }
+        .bio-text { font-size: 1.05rem; line-height: 1.7; color: #444; font-weight: 400; }
+        .skills-container { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 5px; }
         .skill-tag {
-            background: rgba(255, 255, 255, 0.6);
-            border: 1px solid rgba(0, 86, 179, 0.2);
-            color: #0056b3;
-            padding: 8px 16px;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            transition: all 0.2s;
-            cursor: default;
+            background: rgba(255, 255, 255, 0.5); /* softer tags */
+            border: 1px solid rgba(0, 86, 179, 0.1); 
+            color: #0056b3; padding: 8px 16px;
+            border-radius: 50px; font-size: 0.9rem; font-weight: 600; transition: all 0.2s; cursor: default;
         }
-
         .skill-tag:hover {
-            background: #0056b3;
-            border-color: #0056b3;
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 86, 179, 0.25);
+            background: #0056b3; border-color: #0056b3; color: white; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0, 86, 179, 0.25);
         }
 
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
-            .about-item {
-                flex-direction: column;
+        /* --- MOBILE STYLES (Center Popup) --- */
+        @media (max-width: 900px) {
+            .hamburger { display: block; }
+            .nav-links {
+                position: fixed; top: 70px; right: 20px; width: 160px; height: auto;
+                background: rgba(255, 255, 255, 0.75); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+                border: 1px solid rgba(255, 255, 255, 0.5); border-radius: 24px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+                display: flex; flex-direction: column; align-items: center; justify-content: center;
+                padding: 1.2rem 0; gap: 1rem; opacity: 0; visibility: hidden;
+                transform: scale(0.9) translateY(-10px); transform-origin: top right;
+                transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
             }
-            .about-icon-col {
-                justify-content: flex-start;
-                border-right: none;
-                border-left: 3px solid #0056b3;
-                padding-right: 0;
-                padding-left: 15px;
-                padding-bottom: 15px;
-                padding-top: 0;
-            }
-            .about-content {
-                margin-left: 0;
-            }
+            .nav-links.active { opacity: 1; visibility: visible; transform: scale(1) translateY(0); }
+            .nav-item { text-align: center; width: fit-content; margin: 0 auto; font-size: 1rem; color: #222; }
+
+            .page-container { padding-top: 50px; }
+            .about-item { flex-direction: column; }
+            .about-icon-col { justify-content: flex-start; border-right: none; border-left: 3px solid #0056b3; padding-right: 0; padding-left: 15px; padding-bottom: 15px; padding-top: 0; }
+            .about-content { margin-left: 0; }
         }
     </style>
 </head>
@@ -188,20 +151,24 @@
     <nav>
         <a href="index.html" class="logo screenshot-gradient">Rakesh Porika.</a>
         
-        <div class="nav-links">
-            <a href="index.html" class="nav-item">Home</a>
-            <a href="about.html" class="nav-item active">About</a>
-            <a href="research.html" class="nav-item">Research</a>
-            <a href="projects.html" class="nav-item">Projects</a>
-            <a href="experience.html" class="nav-item">Experience</a>
-            <a href="education.html" class="nav-item">Education</a>
+        <div class="hamburger" id="hamburgerBtn" onclick="toggleMenu(event)">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <div class="nav-links" id="navLinks">
+            <a href="index.html" class="nav-item" onclick="closeMenu()">Home</a>
+            <a href="about.html" class="nav-item active" onclick="closeMenu()">About</a>
+            <a href="research.html" class="nav-item" onclick="closeMenu()">Research</a>
+            <a href="projects.html" class="nav-item" onclick="closeMenu()">Projects</a>
+            <a href="experience.html" class="nav-item" onclick="closeMenu()">Experience</a>
+            <a href="education.html" class="nav-item" onclick="closeMenu()">Education</a>
         </div>
     </nav>
     
     <div class="page-container">
-        <h1 class="page-title screenshot-gradient"></h1>
+        <h1 class="page-title screenshot-gradient reveal-1"></h1>
 
-        <div class="about-item">
+        <div class="about-item reveal-2">
             <div class="about-icon-col">
                 <div class="about-icon-circle"><i class="fas fa-user"></i></div>
             </div>
@@ -216,7 +183,7 @@
             </div>
         </div>
 
-        <div class="about-item">
+        <div class="about-item reveal-3">
             <div class="about-icon-col">
                 <div class="about-icon-circle"><i class="fas fa-microscope"></i></div>
             </div>
@@ -231,7 +198,7 @@
             </div>
         </div>
 
-        <div class="about-item">
+        <div class="about-item reveal-4">
             <div class="about-icon-col">
                 <div class="about-icon-circle"><i class="fas fa-code"></i></div>
             </div>
@@ -254,6 +221,28 @@
         </div>
 
     </div>
+
+    <script>
+        const nav = document.getElementById('navLinks');
+        const hamburger = document.getElementById('hamburgerBtn');
+
+        function toggleMenu(event) {
+            event.stopPropagation();
+            nav.classList.toggle('active');
+        }
+
+        function closeMenu() {
+            nav.classList.remove('active');
+        }
+
+        document.addEventListener('click', function(event) {
+            const isClickInsideNav = nav.contains(event.target);
+            const isClickOnHamburger = hamburger.contains(event.target);
+            if (!isClickInsideNav && !isClickOnHamburger && nav.classList.contains('active')) {
+                closeMenu();
+            }
+        });
+    </script>
 
     <script type="importmap">
         {
