@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research | Rakesh Porika</title>
+    <meta name="description" content="Research publications and academic work by Rakesh Porika in AI for healthcare, medical imaging, ECG analysis, and industrial IoT.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        html, body {
+            overflow-y: auto !important;
+            height: auto !important;
+            font-family: 'Inter', sans-serif;
+        }
+
+        @keyframes softReveal {
+            0% { opacity: 0; transform: translateY(30px) scale(0.98); filter: blur(10px); }
+            100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+        }
+
+        .reveal-1 { animation: softReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: 0.1s; opacity: 0; }
+        .reveal-2 { animation: softReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: 0.2s; opacity: 0; }
+        .reveal-3 { animation: softReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: 0.3s; opacity: 0; }
+        .reveal-4 { animation: softReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: 0.4s; opacity: 0; }
+        .reveal-5 { animation: softReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: 0.5s; opacity: 0; }
+
+        /* --- NAVIGATION STYLES --- */
+        .screenshot-gradient {
+            background: linear-gradient(90deg, #0056b3 0%, #2ac8eb 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+            width: fit-content;
+        }
+
+        .nav-item {
+            text-decoration: none;
+            color: rgb(29, 84, 133);
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-left: 2rem;
+            padding-bottom: 4px;
+            transition: all 0.2s ease-in-out;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-item:hover {
+            background: linear-gradient(90deg, #0056b3 0%, #2ac8eb 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-item.active {
+            color: #0056b3;
+            border-bottom: 2px solid #0056b3;
+        }
+
+        .page-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 100px 20px 60px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .page-intro {
+            max-width: 760px;
+            font-size: 1.08rem;
+            line-height: 1.8;
+            color: #4d5b71;
+            margin-bottom: 3rem;
+        }
+
+        .research-item {
+            display: flex;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .research-icon-col {
+            min-width: 80px;
+            display: flex;
+            justify-content: flex-end;
+            padding-top: 2.1rem;
+            padding-right: 25px;
+            border-right: 2px solid rgba(0, 86, 179, 0.1);
+        }
+
+        .research-icon-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid #0056b3;
+            color: #0056b3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .research-content {
+            flex: 1;
+            margin-left: 20px;
+            background: rgba(255, 255, 255, 0.72);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: none;
+            border-radius: 30px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .research-content:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.86);
+            box-shadow: 0 15px 50px rgba(0, 86, 179, 0.1);
+        }
+
+        .research-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .research-year,
+        .research-type {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.45rem 0.9rem;
+            border-radius: 999px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .research-year {
+            background: rgba(0, 86, 179, 0.1);
+            color: #0056b3;
+        }
+
+        .research-type {
+            background: rgba(42, 200, 235, 0.12);
+            color: #0d7891;
+        }
+
+        .research-title {
+            font-size: 1.45rem;
+            font-weight: 700;
+            color: #222;
+            margin: 0 0 0.75rem 0;
+            line-height: 1.3;
+        }
+
+        .research-venue {
+            font-size: 1.05rem;
+            color: #555;
+            margin: 0 0 0.75rem 0;
+            font-weight: 500;
+            font-style: italic;
+        }
+
+        .research-desc {
+            font-size: 1rem;
+            color: #444;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .res-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            color: #0056b3;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-top: 4px;
+            transition: color 0.2s;
+        }
+
+        .res-link:hover {
+            text-decoration: underline;
+            color: #003d80;
+        }
+
+        @media (max-width: 900px) {
+            .page-container {
+                padding-top: 110px;
+            }
+
+            .research-item {
+                flex-direction: column;
+            }
+
+            .research-icon-col {
+                justify-content: flex-start;
+                border-right: none;
+                border-left: 3px solid #0056b3;
+                padding-right: 0;
+                padding-left: 15px;
+                padding-bottom: 15px;
+                padding-top: 0;
+            }
+
+            .research-content {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body data-background="interactive">
+    
+    <canvas id="webgl"></canvas>
+
+    <nav aria-label="Primary">
+        <a href="index.html" class="logo screenshot-gradient">Rakesh Porika.</a>
+
+        <button class="hamburger" id="hamburgerBtn" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Open navigation menu">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <div class="nav-links" id="navLinks">
+            <a href="index.html" class="nav-item">Home</a>
+            <a href="about.html" class="nav-item">About</a>
+            <a href="research.html" class="nav-item active">Research</a>
+            <a href="projects.html" class="nav-item">Projects</a>
+            <a href="experience.html" class="nav-item">Experience</a>
+            <a href="education.html" class="nav-item">Education</a>
+        </div>
+    </nav>
+
+    <main class="page-container">
+        <h1 class="page-title screenshot-gradient reveal-1">Research & Publications</h1>
+        <p class="page-intro reveal-2">
+            My research explores how intelligent systems can support healthcare, neurotechnology, and real-world human-centered applications. These selected works reflect my interest in building practical, interpretable, and impactful AI systems.
+        </p>
+
+        <div class="research-item reveal-2">
+            <div class="research-icon-col">
+                <div class="research-icon-circle"><i class="fas fa-brain"></i></div>
+            </div>
+            <div class="research-content">
+                <div class="research-meta">
+                    <span class="research-year">2025</span>
+                    <span class="research-type">Research Project</span>
+                </div>
+                <h3 class="research-title">An Interactive Tool for Visualizing Software Architecture Evolution using LLM</h3>
+                <h4 class="research-venue">IIT Gandhinagar</h4>
+                <p class="research-desc">
+                    Designing an interactive system that extracts architecture-related insights across software versions and uses large language models to summarize structural evolution in a readable, visual format.
+                </p>
+            </div>
+        </div>
+
+        <div class="research-item reveal-3">
+            <div class="research-icon-col">
+                <div class="research-icon-circle"><i class="fas fa-microscope"></i></div>
+            </div>
+            <div class="research-content">
+                <div class="research-meta">
+                    <span class="research-year">2023-24</span>
+                    <span class="research-type">Publication</span>
+                </div>
+                <h3 class="research-title">Detection of Ovarian Cancer From Histopathological Images Using DL Models & XAI</h3>
+                <h4 class="research-venue">ICAMS-2025</h4>
+                <p class="research-desc">
+                    Investigated deep learning and explainable AI techniques for detecting ovarian cancer from histopathological imagery, with a focus on making model predictions more trustworthy for healthcare settings.
+                </p>
+                <a href="https://link.springer.com/book/9789819538409" target="_blank" rel="noopener noreferrer" class="res-link">
+                    View Publication <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="research-item reveal-4">
+            <div class="research-icon-col">
+                <div class="research-icon-circle"><i class="fas fa-network-wired"></i></div>
+            </div>
+            <div class="research-content">
+                <div class="research-meta">
+                    <span class="research-year">2022-23</span>
+                    <span class="research-type">Journal Article</span>
+                </div>
+                <h3 class="research-title">PULSE: Proactive Uncovering of Latent Severe Anomalous Events in IIoT</h3>
+                <h4 class="research-venue">Cluster Computing (Springer)</h4>
+                <p class="research-desc">
+                    Developed a proactive anomaly detection approach for Industrial IoT environments to identify severe latent events early, improving reliability and resilience in connected systems.
+                </p>
+                <a href="https://link.springer.com/article/10.1007/s10586-024-04653-7" target="_blank" rel="noopener noreferrer" class="res-link">
+                    View Article <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="research-item reveal-5">
+            <div class="research-icon-col">
+                <div class="research-icon-circle"><i class="fas fa-heartbeat"></i></div>
+            </div>
+            <div class="research-content">
+                <div class="research-meta">
+                    <span class="research-year">2024</span>
+                    <span class="research-type">Research Publication</span>
+                </div>
+                <h3 class="research-title">Deep Learning-Based Classification of ECG Heartbeat Signals Using Transformer Encoders</h3>
+                <h4 class="research-venue">Research Publication</h4>
+                <p class="research-desc">
+                    Explored transformer-based architectures for ECG heartbeat classification to improve sequence modeling performance in physiological signal analysis and cardiac health monitoring.
+                </p>
+            </div>
+        </div>
+
+    </main>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@0.154.0/build/three.module.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.154.0/examples/jsm/"
+            }
+        }
+    </script>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
