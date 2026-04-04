@@ -4,18 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Experience | Rakesh Porika</title>
-    
+    <meta name="description" content="Academic experience, teaching roles, certifications, achievements, and volunteer activities for Rakesh Porika.">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     
     <link rel="stylesheet" href="style.css">
 
     <style>
-        /* --- ENABLE SCROLLING --- */
         html, body {
             overflow-y: auto !important;
             height: auto !important;
+            font-family: 'Inter', sans-serif;
         }
+
+        @keyframes softReveal {
+            0% { opacity: 0; transform: translateY(30px) scale(0.98); filter: blur(10px); }
+            100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+        }
+
+        .reveal-1 { animation: softReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: 0.1s; opacity: 0; }
+        .reveal-2 { animation: softReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: 0.2s; opacity: 0; }
+        .reveal-3 { animation: softReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: 0.3s; opacity: 0; }
+        .reveal-4 { animation: softReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: 0.4s; opacity: 0; }
+        .reveal-5 { animation: softReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: 0.5s; opacity: 0; }
 
         /* --- UNIFIED GRADIENT STYLE --- */
         .screenshot-gradient {
@@ -52,11 +63,10 @@
             border-bottom: 2px solid #0056b3;
         }
 
-        /* --- EXPERIENCE TIMELINE LAYOUT --- */
         .page-container {
-            max-width: 900px;
+            max-width: 1140px;
             margin: 0 auto;
-            padding: 140px 20px 60px;
+            padding: 100px 20px 60px;
             position: relative;
             z-index: 2;
         }
@@ -67,85 +77,135 @@
             margin-bottom: 1rem;
         }
 
-        .section-heading {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-top: 3.5rem;
-            margin-bottom: 2rem;
-        }
-
-        /* Timeline Item Container */
-        .exp-item {
-            display: flex;
+        .page-intro {
+            max-width: 780px;
+            font-size: 1.08rem;
+            line-height: 1.85;
+            color: #4d5b71;
             margin-bottom: 2.5rem;
-            position: relative;
         }
 
-        /* Date Column (Fixed Width for Perfect Alignment) */
-        .exp-date {
-            width: 170px; /* Fixed width to ensure vertical line alignment */
-            flex-shrink: 0; /* Prevents column from shrinking */
-            font-weight: 600;
-            color: #0056b3; /* Brand Blue */
-            font-size: 1.05rem;
-            padding-top: 15px; 
-            text-align: left; 
-            padding-right: 25px;
-            border-right: 2px solid rgba(0, 86, 179, 0.2);
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(12, minmax(0, 1fr));
+            gap: 1.5rem;
         }
 
-        /* Content Column (Right) - GLASS CARD STYLE */
-        .exp-content {
-            flex: 1;
-            margin-left: 20px; 
-            
-            /* Glass Background */
-            background: rgba(255, 255, 255, 0.4); 
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            border-radius: 16px; 
-            
-            padding: 1.5rem;
-            transition: transform 0.2s, box-shadow 0.2s;
+        .section-card {
+            grid-column: span 12;
+            background: rgba(255, 255, 255, 0.74);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border-radius: 32px;
+            padding: 1.75rem;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.05);
         }
 
-        .exp-content:hover {
-            transform: translateY(-2px);
-            background: rgba(255, 255, 255, 0.55);
-            box-shadow: 0 8px 20px rgba(0, 86, 179, 0.1);
+        .section-card.compact {
+            grid-column: span 6;
         }
 
-        /* Icon Styling */
-        .exp-icon {
+        .section-heading {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            font-size: 1.65rem;
+            font-weight: 700;
+            margin: 0 0 0.7rem 0;
+        }
+
+        .section-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(0, 86, 179, 0.15);
+            background: rgba(255, 255, 255, 0.76);
             color: #0056b3;
-            font-size: 1.1rem;
-            margin-right: 10px;
-            width: 24px;
-            text-align: center;
-            display: inline-block;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
         }
 
-        .exp-role {
-            font-size: 1.25rem;
+        .section-subtitle {
+            color: #58667d;
+            line-height: 1.75;
+            margin: 0 0 1.5rem 0;
+        }
+
+        .timeline {
+            display: grid;
+            gap: 1.1rem;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 1.1rem;
+            align-items: stretch;
+        }
+
+        .timeline-marker {
+            width: 132px;
+            flex-shrink: 0;
+            padding-top: 0.75rem;
+        }
+
+        .timeline-pill {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 0.9rem;
+            border-radius: 999px;
+            background: rgba(0, 86, 179, 0.1);
+            color: #0056b3;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .timeline-content {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.78);
+            border-radius: 24px;
+            padding: 1.35rem 1.4rem;
+            box-shadow: 0 8px 24px rgba(0, 86, 179, 0.06);
+            transition: transform 0.28s ease, background 0.28s ease, box-shadow 0.28s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 14px 34px rgba(0, 86, 179, 0.12);
+        }
+
+        .entry-title {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.22rem;
             font-weight: 700;
             color: #222;
-            margin: 0 0 5px 0;
+            margin: 0 0 0.45rem 0;
             line-height: 1.3;
         }
 
-        .exp-org {
+        .entry-title i {
+            color: #0056b3;
+            width: 24px;
+            text-align: center;
+        }
+
+        .entry-org {
             font-size: 1.05rem;
             color: #555;
-            margin: 0 0 10px 0;
+            margin: 0 0 0.75rem 0;
             font-weight: 500;
             font-style: italic;
         }
 
-        .exp-desc {
+        .entry-desc {
             font-size: 1rem;
             color: #444;
-            line-height: 1.6;
+            line-height: 1.7;
+            margin: 0;
         }
 
         .exp-link {
@@ -165,36 +225,99 @@
             color: #003d80;
         }
 
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
-            .exp-item {
+        .mini-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        .mini-card {
+            background: rgba(255, 255, 255, 0.78);
+            border-radius: 24px;
+            padding: 1.3rem;
+            box-shadow: 0 8px 24px rgba(0, 86, 179, 0.06);
+            transition: transform 0.28s ease, background 0.28s ease;
+        }
+
+        .mini-card:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .mini-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.8rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .mini-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.4rem 0.75rem;
+            border-radius: 999px;
+            background: rgba(42, 200, 235, 0.12);
+            color: #0d7891;
+            font-size: 0.84rem;
+            font-weight: 600;
+        }
+
+        .mini-title {
+            font-size: 1.08rem;
+            font-weight: 700;
+            color: #22324a;
+            margin: 0 0 0.35rem 0;
+        }
+
+        .mini-org {
+            color: #5d6b82;
+            font-size: 0.96rem;
+            margin: 0 0 0.55rem 0;
+        }
+
+        .mini-desc {
+            color: #46556e;
+            line-height: 1.65;
+            margin: 0;
+        }
+
+        @media (max-width: 900px) {
+            .page-container {
+                padding-top: 110px;
+            }
+
+            .section-card.compact {
+                grid-column: span 12;
+            }
+
+            .timeline-item {
                 flex-direction: column;
             }
-            .exp-date {
-                width: 100%; /* Reset width on mobile */
-                text-align: left;
-                border-right: none;
-                border-left: 3px solid #0056b3;
-                padding-left: 15px;
-                padding-bottom: 10px;
+
+            .timeline-marker {
+                width: auto;
                 padding-top: 0;
-                margin-bottom: 10px;
             }
-            .exp-content {
-                margin-left: 0;
-                margin-top: 5px;
+
+            .mini-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
-<body>
+<body data-background="interactive">
     
     <canvas id="webgl"></canvas>
 
-    <nav>
+    <nav aria-label="Primary">
         <a href="index.html" class="logo screenshot-gradient">Rakesh Porika.</a>
-        
-        <div class="nav-links">
+
+        <button class="hamburger" id="hamburgerBtn" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Open navigation menu">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <div class="nav-links" id="navLinks">
             <a href="index.html" class="nav-item">Home</a>
             <a href="about.html" class="nav-item">About</a>
             <a href="research.html" class="nav-item">Research</a>
@@ -203,160 +326,204 @@
             <a href="education.html" class="nav-item">Education</a>
         </div>
     </nav>
-    
-    <div class="page-container">
-        <h1 class="page-title screenshot-gradient">Experience & Activities</h1>
 
-        <h2 class="section-heading screenshot-gradient">Work Experience</h2>
+    <main class="page-container">
+        <h1 class="page-title screenshot-gradient reveal-1">Experience & Activities</h1>
+        <p class="page-intro reveal-2">
+            My experience spans teaching, mentoring, technical training, competitive achievements, and academic service. I enjoy roles where I can explain ideas clearly, support others, and contribute to communities around computing, healthcare, and emerging technologies.
+        </p>
 
-        <div class="exp-item">
-            <div class="exp-date">Jan 2026 - May 2026</div>
-            <div class="exp-content">
-                <h3 class="exp-role"><i class="fas fa-code exp-icon"></i>Teaching Assistant (Databases)</h3>
-                <h4 class="exp-org">IIT Gandhinagar | Instructor: Dr. Yogesh K. Meena</h4>
-                <p class="exp-desc">
-                    Assisting in the Databases course. Responsible for facilitating lab sessions, grading assignments, and clarifying student doubts.
+        <div class="experience-grid">
+            <section class="section-card reveal-2">
+                <h2 class="section-heading screenshot-gradient">
+                    <span class="section-icon"><i class="fas fa-chalkboard-teacher"></i></span>
+                    Teaching & Academic Support
+                </h2>
+                <p class="section-subtitle">
+                    A growing part of my academic journey has been helping students through labs, tutorials, evaluations, and one-on-one doubt resolution across core computer science courses.
                 </p>
-            </div>
-        </div>
+                <div class="timeline">
+                    <article class="timeline-item">
+                        <div class="timeline-marker">
+                            <span class="timeline-pill">Jan 2026 - May 2026</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h3 class="entry-title"><i class="fas fa-database"></i>Teaching Assistant, Databases</h3>
+                            <p class="entry-org">IIT Gandhinagar | Instructor: Dr. Yogesh K. Meena</p>
+                            <p class="entry-desc">Supported the Databases course through lab facilitation, assignment evaluation, and direct student guidance on concepts and implementation details.</p>
+                        </div>
+                    </article>
 
-        <div class="exp-item">
-            <div class="exp-date">Aug 2025 - Dec 2025</div>
-            <div class="exp-content">
-                <h3 class="exp-role"><i class="fas fa-code exp-icon"></i>Teaching Assistant (DSA 1)</h3>
-                <h4 class="exp-org">IIT Gandhinagar | Instructor: Dr. Balagopal Komarath</h4>
-                <p class="exp-desc">
-                    Assisting in the Data Structures and Algorithms 1 course. Responsible for facilitating lab sessions, grading assignments, and clarifying student doubts.
+                    <article class="timeline-item">
+                        <div class="timeline-marker">
+                            <span class="timeline-pill">Aug 2025 - Dec 2025</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h3 class="entry-title"><i class="fas fa-sitemap"></i>Teaching Assistant, Data Structures & Algorithms 1</h3>
+                            <p class="entry-org">IIT Gandhinagar | Instructor: Dr. Balagopal Komarath</p>
+                            <p class="entry-desc">Facilitated labs, clarified core DSA concepts, and assisted in grading and coursework support for foundational algorithmic problem solving.</p>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item">
+                        <div class="timeline-marker">
+                            <span class="timeline-pill">Jul 2023 - Dec 2025</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h3 class="entry-title"><i class="fas fa-code"></i>Teaching Assistant, Ongoing Academic Support</h3>
+                            <p class="entry-org">IIT Gandhinagar</p>
+                            <p class="entry-desc">Contributed across multiple teaching cycles by helping students build confidence in programming, coursework, and applied problem solving.</p>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item">
+                        <div class="timeline-marker">
+                            <span class="timeline-pill">Jul 2023 - Jun 2024</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h3 class="entry-title"><i class="fas fa-microchip"></i>Teaching Assistant, Theory of Computation & Digital Electronics</h3>
+                            <p class="entry-org">NIT Hamirpur | Instructor: Dr. Sangeetha Sharma</p>
+                            <p class="entry-desc">Managed tutorials, student evaluations, and concept reinforcement for mathematically rigorous and hardware-oriented coursework.</p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="section-card compact reveal-3">
+                <h2 class="section-heading screenshot-gradient">
+                    <span class="section-icon"><i class="fas fa-certificate"></i></span>
+                    Certifications
+                </h2>
+                <p class="section-subtitle">Focused training that strengthened my foundation in bioinformatics and cloud technologies.</p>
+                <div class="mini-grid">
+                    <article class="mini-card">
+                        <div class="mini-top">
+                            <span class="mini-badge">Jan 2025</span>
+                            <i class="fas fa-dna" style="color:#0056b3;"></i>
+                        </div>
+                        <h3 class="mini-title">Bioinformatics Foundation</h3>
+                        <p class="mini-org">Udemy</p>
+                        <p class="mini-desc">Built a stronger grounding in bioinformatics concepts, tools, and analytical thinking for computational biology applications.</p>
+                        <a href="https://drive.google.com/file/d/1NBn0jitQsgd3voXUcmbdys3DsyQn-Frr/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="exp-link">View Certificate <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
+                    </article>
+
+                    <article class="mini-card">
+                        <div class="mini-top">
+                            <span class="mini-badge">Aug - Sep 2022</span>
+                            <i class="fas fa-cloud" style="color:#0056b3;"></i>
+                        </div>
+                        <h3 class="mini-title">Certified Cloud Computing Trainee</h3>
+                        <p class="mini-org">Acmegrade, IIT Bombay</p>
+                        <p class="mini-desc">Completed intensive exposure to cloud infrastructure, services, and deployment-oriented thinking.</p>
+                        <a href="https://drive.google.com/file/d/1m9t3AzptlVoq4H8zt2Vyy14WbhMEGglP/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="exp-link">View Certificate <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
+                    </article>
+                </div>
+            </section>
+
+            <section class="section-card compact reveal-4">
+                <h2 class="section-heading screenshot-gradient">
+                    <span class="section-icon"><i class="fas fa-award"></i></span>
+                    Highlights
+                </h2>
+                <p class="section-subtitle">A few milestones that reflect academic recognition, competitive success, and professional readiness.</p>
+                <div class="mini-grid">
+                    <article class="mini-card">
+                        <div class="mini-top">
+                            <span class="mini-badge">2024</span>
+                            <i class="fas fa-user-graduate" style="color:#0056b3;"></i>
+                        </div>
+                        <h3 class="mini-title">PhD Scholar Selection</h3>
+                        <p class="mini-org">IISER Pune, Maharashtra</p>
+                        <p class="mini-desc">Selected as a full-time PhD scholar, reflecting research readiness and academic potential.</p>
+                        <a href="https://drive.google.com/file/d/1updAOtijoNXXOE431fkO_hHqioA9kMCW/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="exp-link">View Proof <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
+                    </article>
+
+                    <article class="mini-card">
+                        <div class="mini-top">
+                            <span class="mini-badge">2024</span>
+                            <i class="fas fa-chalkboard-teacher" style="color:#0056b3;"></i>
+                        </div>
+                        <h3 class="mini-title">Assistant Professor Selection</h3>
+                        <p class="mini-org">Galgotias University, UP</p>
+                        <p class="mini-desc">Selected for the position of Assistant Professor, highlighting teaching and technical competence.</p>
+                        <a href="https://drive.google.com/file/d/1g5uvwcEr0TOuh5V40NOdOdd1ia7Gd0aG/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="exp-link">View Proof <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
+                    </article>
+
+                    <article class="mini-card">
+                        <div class="mini-top">
+                            <span class="mini-badge">2023</span>
+                            <i class="fas fa-train" style="color:#0056b3;"></i>
+                        </div>
+                        <h3 class="mini-title">Senior Technical Associate Selection</h3>
+                        <p class="mini-org">South Western Railways, Indian Railways</p>
+                        <p class="mini-desc">Selected for the STA role, demonstrating technical capability in a competitive recruitment setting.</p>
+                    </article>
+
+                    <article class="mini-card">
+                        <div class="mini-top">
+                            <span class="mini-badge">2023</span>
+                            <i class="fas fa-medal" style="color:#0056b3;"></i>
+                        </div>
+                        <h3 class="mini-title">GATE Qualified</h3>
+                        <p class="mini-org">Graduate Aptitude Test in Engineering</p>
+                        <p class="mini-desc">Qualified GATE and secured MHRD funding support for M.Tech studies.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="section-card reveal-5">
+                <h2 class="section-heading screenshot-gradient">
+                    <span class="section-icon"><i class="fas fa-users"></i></span>
+                    Leadership & Service
+                </h2>
+                <p class="section-subtitle">
+                    Alongside academics, I enjoy building communities, coordinating events, and contributing to research-oriented workshops and student engagement initiatives.
                 </p>
-            </div>
+                <div class="timeline">
+                    <article class="timeline-item">
+                        <div class="timeline-marker">
+                            <span class="timeline-pill">HealthX-2026</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h3 class="entry-title"><i class="fas fa-heartbeat"></i>Co-ordinator</h3>
+                            <p class="entry-desc">Organized the workshop “Advancements in Health and Neuro Computing,” helping coordinate activities around interdisciplinary health technology themes.</p>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item">
+                        <div class="timeline-marker">
+                            <span class="timeline-pill">RAAI-2024</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h3 class="entry-title"><i class="fas fa-robot"></i>Co-ordinator</h3>
+                            <p class="entry-desc">Organized the workshop “Recent Advancements in Artificial Intelligence and IoT,” supporting technical planning and participant coordination.</p>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item">
+                        <div class="timeline-marker">
+                            <span class="timeline-pill">MIND-2024</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h3 class="entry-title"><i class="fas fa-users"></i>Volunteer</h3>
+                            <p class="entry-desc">Volunteered for the international conference on machine learning, image processing, network security, and data sciences, contributing to event execution and coordination.</p>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item">
+                        <div class="timeline-marker">
+                            <span class="timeline-pill">Yogic Self</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h3 class="entry-title"><i class="fas fa-spa"></i>Convener</h3>
+                            <p class="entry-desc">Managed and organized yoga workshops for more than 100 students, focusing on community engagement and well-being.</p>
+                        </div>
+                    </article>
+                </div>
+            </section>
         </div>
 
-        <div class="exp-item">
-            <div class="exp-date">Jul 2023 - Dec 2025</div>
-            <div class="exp-content">
-                <h3 class="exp-role"><i class="fas fa-code exp-icon"></i>Teaching Assistant (DSA 1)</h3>
-                <h4 class="exp-org">IIT Gandhinagar | Instructor: Dr. Balagopal Komarath</h4>
-                <p class="exp-desc">
-                    Assisting in the Data Structures and Algorithms 1 course. Responsible for facilitating lab sessions, grading assignments, and clarifying student doubts.
-                </p>
-            </div>
-        </div>
-
-        <div class="exp-item">
-            <div class="exp-date">Jul 2023 - Jun 2024</div>
-            <div class="exp-content">
-                <h3 class="exp-role"><i class="fas fa-microchip exp-icon"></i>Teaching Assistant (ToC & Digital Electronics)</h3>
-                <h4 class="exp-org">NIT Hamirpur | Instructor: Dr. Sangeetha Sharma</h4>
-                <p class="exp-desc">
-                    Assisted in Theory of Computation and Digital Electronics courses. Managed student evaluations and conducted tutorial sessions.
-                </p>
-            </div>
-        </div>
-
-        <h2 class="section-heading screenshot-gradient">Certifications & Training</h2>
-
-        <div class="exp-item">
-            <div class="exp-date">Jan 2025</div>
-            <div class="exp-content">
-                <h3 class="exp-role"><i class="fas fa-dna exp-icon"></i>Bioinformatics Foundation</h3>
-                <h4 class="exp-org">UDEMY</h4>
-                <p class="exp-desc">Developed a strong foundation in Bioinformatics concepts, algorithms, and tools.</p>
-                <a href="https://drive.google.com/file/d/1NBn0jitQsgd3voXUcmbdys3DsyQn-Frr/view?usp=sharing" target="_blank" class="exp-link">
-                    View Certificate <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i>
-                </a>
-            </div>
-        </div>
-
-        <div class="exp-item">
-            <div class="exp-date">Aug - Sep 2022</div>
-            <div class="exp-content">
-                <h3 class="exp-role"><i class="fas fa-cloud exp-icon"></i>Certified Cloud Computing Trainee</h3>
-                <h4 class="exp-org">Acmegrade, IIT Bombay</h4>
-                <p class="exp-desc">Completed intensive training in cloud infrastructure and services.</p>
-                <a href="https://drive.google.com/file/d/1m9t3AzptlVoq4H8zt2Vyy14WbhMEGglP/view?usp=sharing" target="_blank" class="exp-link">
-                    View Certificate <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i>
-                </a>
-            </div>
-        </div>
-
-        <h2 class="section-heading screenshot-gradient">Achievements</h2>
-
-        <div class="exp-item">
-            <div class="exp-date">2024</div>
-            <div class="exp-content">
-                <h3 class="exp-role"><i class="fas fa-user-graduate exp-icon"></i>PhD Scholar Selection</h3>
-                <h4 class="exp-org">IISER Pune, Maharashtra</h4>
-                <p class="exp-desc">Selected as a full-time PhD scholar.</p>
-                <a href="https://drive.google.com/file/d/1updAOtijoNXXOE431fkO_hHqioA9kMCW/view?usp=drive_link" target="_blank" class="exp-link">
-                    View Proof <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i>
-                </a>
-            </div>
-        </div>
-
-        <div class="exp-item">
-            <div class="exp-date">2024</div>
-            <div class="exp-content">
-                <h3 class="exp-role"><i class="fas fa-chalkboard-teacher exp-icon"></i>Assistant Professor Selection</h3>
-                <h4 class="exp-org">Galgotias University, UP</h4>
-                <p class="exp-desc">Selected for the position of Assistant Professor.</p>
-                <a href="https://drive.google.com/file/d/1g5uvwcEr0TOuh5V40NOdOdd1ia7Gd0aG/view?usp=drive_link" target="_blank" class="exp-link">
-                    View Proof <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i>
-                </a>
-            </div>
-        </div>
-
-        <div class="exp-item">
-            <div class="exp-date">2023</div>
-            <div class="exp-content">
-                <h3 class="exp-role"><i class="fas fa-train exp-icon"></i>Senior Technical Associate (STA)</h3>
-                <h4 class="exp-org">South Western Railways, Indian Railways</h4>
-                <p class="exp-desc">Selected for the STA position.</p>
-            </div>
-        </div>
-
-        <div class="exp-item">
-            <div class="exp-date">2023</div>
-            <div class="exp-content">
-                <h3 class="exp-role"><i class="fas fa-certificate exp-icon"></i>GATE Qualified</h3>
-                <p class="exp-desc">Qualified GATE exam and secured MHRD funding for M.Tech studies.</p>
-            </div>
-        </div>
-
-        <h2 class="section-heading screenshot-gradient">Volunteer Activities</h2>
-
-        <div class="exp-item">
-            <div class="exp-date">HealthX-2026</div>
-            <div class="exp-content">
-                <h3 class="exp-role"><i class="fas fa-heartbeat exp-icon"></i>Co-ordinator</h3>
-                <p class="exp-desc">Organized the 'Advancements in Health and Neuro Computing' workshop.</p>
-            </div>
-        </div>
-
-        <div class="exp-item">
-            <div class="exp-date">RAAI-2024</div>
-            <div class="exp-content">
-                <h3 class="exp-role"><i class="fas fa-robot exp-icon"></i>Co-ordinator</h3>
-                <p class="exp-desc">Organized the 'Recent Advancements in Artificial Intelligence and IoT' workshop.</p>
-            </div>
-        </div>
-
-        <div class="exp-item">
-            <div class="exp-date">MIND-2024</div>
-            <div class="exp-content">
-                <h3 class="exp-role"><i class="fas fa-users exp-icon"></i>Volunteer</h3>
-                <p class="exp-desc">Volunteered for the International Conference on Machine Learning, Image Processing, Network Security, and Data Sciences.</p>
-            </div>
-        </div>
-
-        <div class="exp-item">
-            <div class="exp-date">Yogic Self</div>
-            <div class="exp-content">
-                <h3 class="exp-role"><i class="fas fa-spa exp-icon"></i>Convener</h3>
-                <p class="exp-desc">Managed and organized yoga workshops for over 100 students.</p>
-            </div>
-        </div>
-
-    </div>
+    </main>
 
     <script type="importmap">
         {

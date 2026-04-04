@@ -4,18 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | Rakesh Porika</title>
-    
+    <meta name="description" content="Rakesh Porika is a PhD Scholar at IIT Gandhinagar working on brain-computer interfaces, machine learning, and AI for healthcare.">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 
     <style>
         /* --- GENERAL SETTINGS --- */
-        html, body {
-            overflow: hidden; /* Clean look for home page */
-            height: 100%;
-        }
-
         /* --- NAVIGATION STYLES --- */
         .screenshot-gradient {
             background: linear-gradient(90deg, #0056b3 0%, #2ac8eb 100%);
@@ -129,14 +124,18 @@
         }
     </style>
 </head>
-<body>
+<body class="home-page" data-background="interactive">
     
     <canvas id="webgl"></canvas>
 
-    <nav>
+    <nav aria-label="Primary">
         <a href="index.html" class="logo screenshot-gradient">Rakesh Porika.</a>
-        
-        <div class="nav-links">
+
+        <button class="hamburger" id="hamburgerBtn" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Open navigation menu">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <div class="nav-links" id="navLinks">
             <a href="index.html" class="nav-item active">Home</a>
             <a href="about.html" class="nav-item">About</a>
             <a href="research.html" class="nav-item">Research</a>
@@ -145,7 +144,8 @@
             <a href="education.html" class="nav-item">Education</a>
         </div>
     </nav>
-    
+
+    <main>
     <div class="hero">
         
         <div class="hero-text">
@@ -158,16 +158,16 @@
                 BCI | Machine Learning | Deep Learning
             </p>
              <div class="social-container reveal-4">
-                <a href="https://scholar.google.com/citations?user=QpyvXnIAAAAJ&hl=en" target="_blank" class="social-btn" title="Google Scholar">
+                <a href="https://scholar.google.com/citations?user=QpyvXnIAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="social-btn" title="Google Scholar" aria-label="Open Google Scholar profile">
                     <i class="fas fa-graduation-cap"></i>
                 </a>
-                <a href="https://labs.iitgn.ac.in/haix/" target="_blank" class="social-btn" title="HAIx Lab">
+                <a href="https://labs.iitgn.ac.in/haix/" target="_blank" rel="noopener noreferrer" class="social-btn" title="HAIx Lab" aria-label="Open HAIx Lab website">
                     <i class="fas fa-brain"></i>
                 </a>
-                <a href="https://www.linkedin.com/in/rakesh-porika9" target="_blank" class="social-btn" title="LinkedIn">
+                <a href="https://www.linkedin.com/in/rakesh-porika9" target="_blank" rel="noopener noreferrer" class="social-btn" title="LinkedIn" aria-label="Open LinkedIn profile">
                     <i class="fab fa-linkedin-in"></i>
                 </a>
-                <a href="mailto:porika.rakesh@iitgn.ac.in" class="social-btn" title="Email Me">
+                <a href="mailto:porika.rakesh@iitgn.ac.in" class="social-btn" title="Email Me" aria-label="Send an email to Rakesh Porika">
                     <i class="fas fa-envelope"></i>
                 </a>
             </div>
@@ -178,6 +178,7 @@
         </div>
 
     </div>
+    </main>
 
     <script type="importmap">
         {

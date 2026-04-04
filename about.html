@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About | Rakesh Porika</title>
-    
+    <meta name="description" content="Learn about Rakesh Porika's academic background, research interests, and technical expertise in AI for healthcare, BCI, and HCI.">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     
@@ -16,9 +16,7 @@
             overflow-y: auto !important;
             height: auto !important;
             font-family: 'Inter', sans-serif;
-            -ms-overflow-style: none; scrollbar-width: none;
         }
-        body::-webkit-scrollbar { display: none; }
 
         /* --- APPLE-STYLE ANIMATION --- */
         @keyframes softReveal {
@@ -51,8 +49,6 @@
         }
         .nav-item:hover { background: linear-gradient(90deg, #0056b3 0%, #2ac8eb 100%); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
         .nav-item.active { color: #0056b3; border-bottom: 2px solid #0056b3; }
-        .hamburger { display: none; font-size: 1.6rem; color: #0056b3; cursor: pointer; }
-
         /* --- PAGE CONTAINER --- */
         .page-container {
             max-width: 1100px; 
@@ -83,7 +79,7 @@
             margin-left: 20px; 
             
             /* Transparent "Cloud" Background */
-            background: rgba(255, 255, 255, 0.35); 
+            background: rgba(255, 255, 255, 0.72); 
             
             /* Strong Blur for Liquid effect */
             backdrop-filter: blur(25px);
@@ -105,7 +101,7 @@
         
         .about-content:hover { 
             transform: translateY(-3px); 
-            background: rgba(255, 255, 255, 0.55); /* Slightly clearer on hover */
+            background: rgba(255, 255, 255, 0.86); /* Slightly clearer on hover */
             box-shadow: 0 15px 50px rgba(0, 86, 179, 0.1); 
         }
         
@@ -113,7 +109,7 @@
         .bio-text { font-size: 1.05rem; line-height: 1.7; color: #444; font-weight: 400; }
         .skills-container { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 5px; }
         .skill-tag {
-            background: rgba(255, 255, 255, 0.5); /* softer tags */
+            background: rgba(255, 255, 255, 0.72); /* softer tags */
             border: 1px solid rgba(0, 86, 179, 0.1); 
             color: #0056b3; padding: 8px 16px;
             border-radius: 50px; font-size: 0.9rem; font-weight: 600; transition: all 0.2s; cursor: default;
@@ -122,51 +118,38 @@
             background: #0056b3; border-color: #0056b3; color: white; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0, 86, 179, 0.25);
         }
 
-        /* --- MOBILE STYLES (Center Popup) --- */
+        /* --- MOBILE STYLES --- */
         @media (max-width: 900px) {
-            .hamburger { display: block; }
-            .nav-links {
-                position: fixed; top: 70px; right: 20px; width: 160px; height: auto;
-                background: rgba(255, 255, 255, 0.75); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-                border: 1px solid rgba(255, 255, 255, 0.5); border-radius: 24px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-                display: flex; flex-direction: column; align-items: center; justify-content: center;
-                padding: 1.2rem 0; gap: 1rem; opacity: 0; visibility: hidden;
-                transform: scale(0.9) translateY(-10px); transform-origin: top right;
-                transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-            }
-            .nav-links.active { opacity: 1; visibility: visible; transform: scale(1) translateY(0); }
-            .nav-item { text-align: center; width: fit-content; margin: 0 auto; font-size: 1rem; color: #222; }
-
-            .page-container { padding-top: 50px; }
+            .page-container { padding-top: 110px; }
             .about-item { flex-direction: column; }
             .about-icon-col { justify-content: flex-start; border-right: none; border-left: 3px solid #0056b3; padding-right: 0; padding-left: 15px; padding-bottom: 15px; padding-top: 0; }
             .about-content { margin-left: 0; }
         }
     </style>
 </head>
-<body>
+<body data-background="interactive">
     
     <canvas id="webgl"></canvas>
 
-    <nav>
+    <nav aria-label="Primary">
         <a href="index.html" class="logo screenshot-gradient">Rakesh Porika.</a>
-        
-        <div class="hamburger" id="hamburgerBtn" onclick="toggleMenu(event)">
+
+        <button class="hamburger" id="hamburgerBtn" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Open navigation menu">
             <i class="fas fa-bars"></i>
-        </div>
+        </button>
 
         <div class="nav-links" id="navLinks">
-            <a href="index.html" class="nav-item" onclick="closeMenu()">Home</a>
-            <a href="about.html" class="nav-item active" onclick="closeMenu()">About</a>
-            <a href="research.html" class="nav-item" onclick="closeMenu()">Research</a>
-            <a href="projects.html" class="nav-item" onclick="closeMenu()">Projects</a>
-            <a href="experience.html" class="nav-item" onclick="closeMenu()">Experience</a>
-            <a href="education.html" class="nav-item" onclick="closeMenu()">Education</a>
+            <a href="index.html" class="nav-item">Home</a>
+            <a href="about.html" class="nav-item active">About</a>
+            <a href="research.html" class="nav-item">Research</a>
+            <a href="projects.html" class="nav-item">Projects</a>
+            <a href="experience.html" class="nav-item">Experience</a>
+            <a href="education.html" class="nav-item">Education</a>
         </div>
     </nav>
-    
-    <div class="page-container">
-        <h1 class="page-title screenshot-gradient reveal-1"></h1>
+
+    <main class="page-container">
+        <h1 class="page-title screenshot-gradient reveal-1">About</h1>
 
         <div class="about-item reveal-2">
             <div class="about-icon-col">
@@ -220,29 +203,7 @@
             </div>
         </div>
 
-    </div>
-
-    <script>
-        const nav = document.getElementById('navLinks');
-        const hamburger = document.getElementById('hamburgerBtn');
-
-        function toggleMenu(event) {
-            event.stopPropagation();
-            nav.classList.toggle('active');
-        }
-
-        function closeMenu() {
-            nav.classList.remove('active');
-        }
-
-        document.addEventListener('click', function(event) {
-            const isClickInsideNav = nav.contains(event.target);
-            const isClickOnHamburger = hamburger.contains(event.target);
-            if (!isClickInsideNav && !isClickOnHamburger && nav.classList.contains('active')) {
-                closeMenu();
-            }
-        });
-    </script>
+    </main>
 
     <script type="importmap">
         {

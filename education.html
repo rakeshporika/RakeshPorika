@@ -4,12 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Education | Rakesh Porika</title>
-    
+    <meta name="description" content="Education timeline for Rakesh Porika, including PhD and dual degree studies in computer science and engineering.">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 
     <style>
+        @keyframes softReveal {
+            0% { opacity: 0; transform: translateY(30px) scale(0.98); filter: blur(10px); }
+            100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+        }
+
+        .reveal-1 { animation: softReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: 0.1s; opacity: 0; }
+        .reveal-2 { animation: softReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: 0.2s; opacity: 0; }
+        .reveal-3 { animation: softReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: 0.3s; opacity: 0; }
+        .reveal-4 { animation: softReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: 0.4s; opacity: 0; }
+
         /* --- NAVIGATION STYLES (MATCHING HOME) --- */
         .screenshot-gradient {
             background: linear-gradient(90deg, #0056b3 0%, #2ac8eb 100%);
@@ -125,14 +135,18 @@
         }
     </style>
 </head>
-<body>
+<body data-background="interactive">
     
     <canvas id="webgl"></canvas>
 
-    <nav>
+    <nav aria-label="Primary">
         <a href="index.html" class="logo screenshot-gradient">Rakesh Porika.</a>
-        
-        <div class="nav-links">
+
+        <button class="hamburger" id="hamburgerBtn" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Open navigation menu">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <div class="nav-links" id="navLinks">
             <a href="index.html" class="nav-item">Home</a>
             <a href="about.html" class="nav-item">About</a>
             <a href="research.html" class="nav-item">Research</a>
@@ -141,11 +155,11 @@
             <a href="education.html" class="nav-item active">Education</a>
         </div>
     </nav>
-    
-    <div class="page-container">
-        <h1 class="page-title screenshot-gradient">Education</h1>
 
-        <div class="edu-item">
+    <main class="page-container">
+        <h1 class="page-title screenshot-gradient reveal-1">Education</h1>
+
+        <div class="edu-item reveal-2">
             <div class="edu-date">2025 - 2029</div>
             <div class="edu-content">
                 <h3 class="edu-degree">PhD in Computer Science & Engineering</h3>
@@ -154,7 +168,7 @@
             </div>
         </div>
 
-        <div class="edu-item">
+        <div class="edu-item reveal-3">
             <div class="edu-date">2019 - 2024</div>
             <div class="edu-content">
                 <h3 class="edu-degree">B.Tech + M.Tech (Dual Degree) in CSE</h3>
@@ -163,7 +177,7 @@
             </div>
         </div>
 
-        <div class="edu-item">
+        <div class="edu-item reveal-4">
             <div class="edu-date">2017 - 2019</div>
             <div class="edu-content">
                 <h3 class="edu-degree">Intermediate (MPC)</h3>
@@ -173,7 +187,7 @@
             </div>
         </div>
 
-    </div>
+    </main>
 
     <script type="importmap">
         {
