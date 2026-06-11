@@ -5,228 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Research | Rakesh Porika</title>
     <meta name="description" content="Research publications and academic work by Rakesh Porika in AI for healthcare, medical imaging, ECG analysis, and industrial IoT.">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Research & Publications — Rakesh Porika">
+    <meta property="og:description" content="Publications and academic work in AI for healthcare, medical imaging, ECG analysis, and industrial IoT.">
+    <meta property="og:image" content="https://rakeshporika.github.io/PIC.jpg">
+    <meta property="og:url" content="https://rakeshporika.github.io/research.html">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%230056b3'/><stop offset='1' stop-color='%232ac8eb'/></linearGradient></defs><rect width='64' height='64' rx='14' fill='url(%23g)'/><text x='32' y='45' font-family='Arial' font-size='38' font-weight='700' fill='white' text-anchor='middle'>R</text></svg>">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-
-    <style>
-        html, body {
-            overflow-y: auto !important;
-            height: auto !important;
-            font-family: 'Inter', sans-serif;
-        }
-
-        @keyframes softReveal {
-            0% { opacity: 0; transform: translateY(30px) scale(0.98); filter: blur(10px); }
-            100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
-        }
-
-        .reveal-1 { animation: softReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: 0.1s; opacity: 0; }
-        .reveal-2 { animation: softReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: 0.2s; opacity: 0; }
-        .reveal-3 { animation: softReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: 0.3s; opacity: 0; }
-        .reveal-4 { animation: softReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: 0.4s; opacity: 0; }
-        .reveal-5 { animation: softReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: 0.5s; opacity: 0; }
-
-        /* --- NAVIGATION STYLES --- */
-        .screenshot-gradient {
-            background: linear-gradient(90deg, #0056b3 0%, #2ac8eb 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            -webkit-text-fill-color: transparent;
-            width: fit-content;
-        }
-
-        .nav-item {
-            text-decoration: none;
-            color: rgb(29, 84, 133);
-            font-weight: 600;
-            font-size: 0.95rem;
-            margin-left: 2rem;
-            padding-bottom: 4px;
-            transition: all 0.2s ease-in-out;
-            border-bottom: 2px solid transparent;
-        }
-
-        .nav-item:hover {
-            background: linear-gradient(90deg, #0056b3 0%, #2ac8eb 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .nav-item.active {
-            color: #0056b3;
-            border-bottom: 2px solid #0056b3;
-        }
-
-        .page-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 100px 20px 60px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .page-title {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .page-intro {
-            max-width: 760px;
-            font-size: 1.08rem;
-            line-height: 1.8;
-            color: #4d5b71;
-            margin-bottom: 3rem;
-        }
-
-        .research-item {
-            display: flex;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-
-        .research-icon-col {
-            min-width: 80px;
-            display: flex;
-            justify-content: flex-end;
-            padding-top: 2.1rem;
-            padding-right: 25px;
-            border-right: 2px solid rgba(0, 86, 179, 0.1);
-        }
-
-        .research-icon-circle {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.8);
-            border: 1px solid #0056b3;
-            color: #0056b3;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        .research-content {
-            flex: 1;
-            margin-left: 20px;
-            background: rgba(255, 255, 255, 0.72);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            border: none;
-            border-radius: 30px;
-            padding: 1.5rem;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease, background 0.3s ease;
-        }
-
-        .research-content:hover {
-            transform: translateY(-3px);
-            background: rgba(255, 255, 255, 0.86);
-            box-shadow: 0 15px 50px rgba(0, 86, 179, 0.1);
-        }
-
-        .research-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-
-        .research-year,
-        .research-type {
-            display: inline-flex;
-            align-items: center;
-            padding: 0.45rem 0.9rem;
-            border-radius: 999px;
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-
-        .research-year {
-            background: rgba(0, 86, 179, 0.1);
-            color: #0056b3;
-        }
-
-        .research-type {
-            background: rgba(42, 200, 235, 0.12);
-            color: #0d7891;
-        }
-
-        .research-title {
-            font-size: 1.45rem;
-            font-weight: 700;
-            color: #222;
-            margin: 0 0 0.75rem 0;
-            line-height: 1.3;
-        }
-
-        .research-venue {
-            font-size: 1.05rem;
-            color: #555;
-            margin: 0 0 0.75rem 0;
-            font-weight: 500;
-            font-style: italic;
-        }
-
-        .research-desc {
-            font-size: 1rem;
-            color: #444;
-            line-height: 1.7;
-            margin: 0;
-        }
-
-        .res-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            text-decoration: none;
-            color: #0056b3;
-            font-weight: 600;
-            font-size: 0.9rem;
-            margin-top: 4px;
-            transition: color 0.2s;
-        }
-
-        .res-link:hover {
-            text-decoration: underline;
-            color: #003d80;
-        }
-
-        @media (max-width: 900px) {
-            .page-container {
-                padding-top: 110px;
-            }
-
-            .research-item {
-                flex-direction: column;
-            }
-
-            .research-icon-col {
-                justify-content: flex-start;
-                border-right: none;
-                border-left: 3px solid #0056b3;
-                padding-right: 0;
-                padding-left: 15px;
-                padding-bottom: 15px;
-                padding-top: 0;
-            }
-
-            .research-content {
-                margin-left: 0;
-            }
-        }
-    </style>
 </head>
 <body data-background="interactive">
-    
+
+    <a class="skip-link" href="#main">Skip to content</a>
+
     <canvas id="webgl"></canvas>
 
     <nav aria-label="Primary">
@@ -246,87 +44,124 @@
         </div>
     </nav>
 
-    <main class="page-container">
+    <main id="main" class="page-container">
         <h1 class="page-title screenshot-gradient reveal-1">Research & Publications</h1>
         <p class="page-intro reveal-2">
             My research explores how intelligent systems can support healthcare, neurotechnology, and real-world human-centered applications. These selected works reflect my interest in building practical, interpretable, and impactful AI systems.
         </p>
 
-        <div class="research-item reveal-2">
-            <div class="research-icon-col">
-                <div class="research-icon-circle"><i class="fas fa-brain"></i></div>
+        <div class="feed-item reveal-2">
+            <div class="icon-col">
+                <div class="icon-circle"><i class="fas fa-brain"></i></div>
             </div>
-            <div class="research-content">
-                <div class="research-meta">
-                    <span class="research-year">2025</span>
-                    <span class="research-type">Research Project</span>
+            <div class="card-content">
+                <div class="card-meta">
+                    <span class="pill">2025</span>
+                    <span class="pill pill-alt">Research Project</span>
                 </div>
-                <h3 class="research-title">An Interactive Tool for Visualizing Software Architecture Evolution using LLM</h3>
-                <h4 class="research-venue">IIT Gandhinagar</h4>
-                <p class="research-desc">
+                <h2 class="card-title">An Interactive Tool for Visualizing Software Architecture Evolution using LLM</h2>
+                <p class="card-venue">IIT Gandhinagar</p>
+                <p class="card-desc">
                     Designing an interactive system that extracts architecture-related insights across software versions and uses large language models to summarize structural evolution in a readable, visual format.
                 </p>
             </div>
         </div>
 
-        <div class="research-item reveal-3">
-            <div class="research-icon-col">
-                <div class="research-icon-circle"><i class="fas fa-microscope"></i></div>
+        <div class="feed-item reveal-3">
+            <div class="icon-col">
+                <div class="icon-circle"><i class="fas fa-microscope"></i></div>
             </div>
-            <div class="research-content">
-                <div class="research-meta">
-                    <span class="research-year">2023-24</span>
-                    <span class="research-type">Publication</span>
+            <div class="card-content">
+                <div class="card-meta">
+                    <span class="pill">2023-24</span>
+                    <span class="pill pill-alt">Publication</span>
                 </div>
-                <h3 class="research-title">Detection of Ovarian Cancer From Histopathological Images Using DL Models & XAI</h3>
-                <h4 class="research-venue">ICAMS-2025</h4>
-                <p class="research-desc">
+                <h2 class="card-title">Detection of Ovarian Cancer From Histopathological Images Using DL Models & XAI</h2>
+                <p class="card-venue">ICAMS-2025</p>
+                <p class="card-desc">
                     Investigated deep learning and explainable AI techniques for detecting ovarian cancer from histopathological imagery, with a focus on making model predictions more trustworthy for healthcare settings.
                 </p>
-                <a href="https://link.springer.com/book/9789819538409" target="_blank" rel="noopener noreferrer" class="res-link">
-                    View Publication <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i>
+                <a href="https://link.springer.com/book/9789819538409" target="_blank" rel="noopener noreferrer" class="card-link">
+                    View Publication <i class="fas fa-external-link-alt" style="font-size: 0.8em;" aria-hidden="true"></i>
                 </a>
             </div>
         </div>
 
-        <div class="research-item reveal-4">
-            <div class="research-icon-col">
-                <div class="research-icon-circle"><i class="fas fa-network-wired"></i></div>
+        <div class="feed-item reveal-4">
+            <div class="icon-col">
+                <div class="icon-circle"><i class="fas fa-network-wired"></i></div>
             </div>
-            <div class="research-content">
-                <div class="research-meta">
-                    <span class="research-year">2022-23</span>
-                    <span class="research-type">Journal Article</span>
+            <div class="card-content">
+                <div class="card-meta">
+                    <span class="pill">2022-23</span>
+                    <span class="pill pill-alt">Journal Article</span>
                 </div>
-                <h3 class="research-title">PULSE: Proactive Uncovering of Latent Severe Anomalous Events in IIoT</h3>
-                <h4 class="research-venue">Cluster Computing (Springer)</h4>
-                <p class="research-desc">
+                <h2 class="card-title">PULSE: Proactive Uncovering of Latent Severe Anomalous Events in IIoT</h2>
+                <p class="card-venue">Cluster Computing (Springer)</p>
+                <p class="card-desc">
                     Developed a proactive anomaly detection approach for Industrial IoT environments to identify severe latent events early, improving reliability and resilience in connected systems.
                 </p>
-                <a href="https://link.springer.com/article/10.1007/s10586-024-04653-7" target="_blank" rel="noopener noreferrer" class="res-link">
-                    View Article <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i>
+                <a href="https://link.springer.com/article/10.1007/s10586-024-04653-7" target="_blank" rel="noopener noreferrer" class="card-link">
+                    View Article <i class="fas fa-external-link-alt" style="font-size: 0.8em;" aria-hidden="true"></i>
                 </a>
             </div>
         </div>
 
-        <div class="research-item reveal-5">
-            <div class="research-icon-col">
-                <div class="research-icon-circle"><i class="fas fa-heartbeat"></i></div>
+        <div class="feed-item reveal-5">
+            <div class="icon-col">
+                <div class="icon-circle"><i class="fas fa-heartbeat"></i></div>
             </div>
-            <div class="research-content">
-                <div class="research-meta">
-                    <span class="research-year">2024</span>
-                    <span class="research-type">Research Publication</span>
+            <div class="card-content">
+                <div class="card-meta">
+                    <span class="pill">2024</span>
+                    <span class="pill pill-alt">Research Publication</span>
                 </div>
-                <h3 class="research-title">Deep Learning-Based Classification of ECG Heartbeat Signals Using Transformer Encoders</h3>
-                <h4 class="research-venue">Research Publication</h4>
-                <p class="research-desc">
+                <h2 class="card-title">Deep Learning-Based Classification of ECG Heartbeat Signals Using Transformer Encoders</h2>
+                <p class="card-venue">Research Publication</p>
+                <p class="card-desc">
                     Explored transformer-based architectures for ECG heartbeat classification to improve sequence modeling performance in physiological signal analysis and cardiac health monitoring.
                 </p>
             </div>
         </div>
 
     </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <a href="index.html" class="logo screenshot-gradient">Rakesh Porika.</a>
+                <p>PhD Scholar at IIT Gandhinagar researching brain-computer interfaces, machine learning, and AI for healthcare.</p>
+            </div>
+            <div>
+                <h2 class="footer-heading">Explore</h2>
+                <div class="footer-links">
+                    <a href="about.html">About</a>
+                    
+                    <a href="projects.html">Projects</a>
+                    <a href="experience.html">Experience</a>
+                    <a href="education.html">Education</a>
+                </div>
+            </div>
+            <div class="footer-contact">
+                <h2 class="footer-heading">Connect</h2>
+                <div class="social-container">
+                    <a href="https://scholar.google.com/citations?user=QpyvXnIAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="social-btn" title="Google Scholar" aria-label="Open Google Scholar profile">
+                        <i class="fas fa-graduation-cap"></i>
+                    </a>
+                    <a href="https://labs.iitgn.ac.in/haix/" target="_blank" rel="noopener noreferrer" class="social-btn" title="HAIx Lab" aria-label="Open HAIx Lab website">
+                        <i class="fas fa-brain"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/rakesh-porika9" target="_blank" rel="noopener noreferrer" class="social-btn" title="LinkedIn" aria-label="Open LinkedIn profile">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="mailto:porika.rakesh@iitgn.ac.in" class="social-btn" title="Email Me" aria-label="Send an email to Rakesh Porika">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">© 2026 Rakesh Porika · HAIx Lab, IIT Gandhinagar</div>
+    </footer>
 
     <script type="importmap">
         {

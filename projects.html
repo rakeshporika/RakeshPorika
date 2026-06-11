@@ -5,228 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects | Rakesh Porika</title>
     <meta name="description" content="Explore selected projects by Rakesh Porika across AI, software architecture visualization, industrial IoT, and healthcare applications.">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Projects — Rakesh Porika">
+    <meta property="og:description" content="Selected projects across AI, software architecture visualization, industrial IoT, and healthcare applications.">
+    <meta property="og:image" content="https://rakeshporika.github.io/PIC.jpg">
+    <meta property="og:url" content="https://rakeshporika.github.io/projects.html">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%230056b3'/><stop offset='1' stop-color='%232ac8eb'/></linearGradient></defs><rect width='64' height='64' rx='14' fill='url(%23g)'/><text x='32' y='45' font-family='Arial' font-size='38' font-weight='700' fill='white' text-anchor='middle'>R</text></svg>">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-
-    <style>
-        html, body {
-            overflow-y: auto !important;
-            height: auto !important;
-            font-family: 'Inter', sans-serif;
-        }
-
-        @keyframes softReveal {
-            0% { opacity: 0; transform: translateY(30px) scale(0.98); filter: blur(10px); }
-            100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
-        }
-
-        .reveal-1 { animation: softReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: 0.1s; opacity: 0; }
-        .reveal-2 { animation: softReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: 0.2s; opacity: 0; }
-        .reveal-3 { animation: softReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: 0.3s; opacity: 0; }
-        .reveal-4 { animation: softReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: 0.4s; opacity: 0; }
-        .reveal-5 { animation: softReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: 0.5s; opacity: 0; }
-
-        /* --- NAVIGATION STYLES --- */
-        .screenshot-gradient {
-            background: linear-gradient(90deg, #0056b3 0%, #2ac8eb 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            -webkit-text-fill-color: transparent;
-            width: fit-content;
-        }
-
-        .nav-item {
-            text-decoration: none;
-            color: rgb(29, 84, 133);
-            font-weight: 600;
-            font-size: 0.95rem;
-            margin-left: 2rem;
-            padding-bottom: 4px;
-            transition: all 0.2s ease-in-out;
-            border-bottom: 2px solid transparent;
-        }
-
-        .nav-item:hover {
-            background: linear-gradient(90deg, #0056b3 0%, #2ac8eb 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .nav-item.active {
-            color: #0056b3;
-            border-bottom: 2px solid #0056b3;
-        }
-
-        .page-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 100px 20px 60px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .page-title {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .page-intro {
-            max-width: 760px;
-            font-size: 1.08rem;
-            line-height: 1.8;
-            color: #4d5b71;
-            margin-bottom: 3rem;
-        }
-
-        .project-item {
-            display: flex;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-
-        .project-icon-col {
-            min-width: 80px;
-            display: flex;
-            justify-content: flex-end;
-            padding-top: 2.1rem;
-            padding-right: 25px;
-            border-right: 2px solid rgba(0, 86, 179, 0.1);
-        }
-
-        .project-icon-circle {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.8);
-            border: 1px solid #0056b3;
-            color: #0056b3;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        .project-content {
-            flex: 1;
-            margin-left: 20px;
-            background: rgba(255, 255, 255, 0.72);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            border: none;
-            border-radius: 30px;
-            padding: 1.5rem;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease, background 0.3s ease;
-        }
-
-        .project-content:hover {
-            transform: translateY(-3px);
-            background: rgba(255, 255, 255, 0.86);
-            box-shadow: 0 15px 50px rgba(0, 86, 179, 0.1);
-        }
-
-        .project-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-
-        .project-period,
-        .project-type {
-            display: inline-flex;
-            align-items: center;
-            padding: 0.45rem 0.9rem;
-            border-radius: 999px;
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-
-        .project-period {
-            background: rgba(0, 86, 179, 0.1);
-            color: #0056b3;
-        }
-
-        .project-type {
-            background: rgba(42, 200, 235, 0.12);
-            color: #0d7891;
-        }
-
-        .project-title {
-            font-size: 1.45rem;
-            font-weight: 700;
-            color: #222;
-            margin: 0 0 0.75rem 0;
-            line-height: 1.3;
-        }
-
-        .project-venue {
-            font-size: 1.05rem;
-            color: #555;
-            margin: 0 0 0.75rem 0;
-            font-weight: 500;
-            font-style: italic;
-        }
-
-        .project-desc {
-            font-size: 1rem;
-            color: #444;
-            line-height: 1.7;
-            margin-bottom: 8px;
-        }
-
-        .proj-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            text-decoration: none;
-            color: #0056b3;
-            font-weight: 600;
-            font-size: 0.9rem;
-            margin-top: 4px;
-            transition: color 0.2s;
-        }
-
-        .proj-link:hover {
-            text-decoration: underline;
-            color: #003d80;
-        }
-
-        @media (max-width: 900px) {
-            .page-container {
-                padding-top: 110px;
-            }
-
-            .project-item {
-                flex-direction: column;
-            }
-
-            .project-icon-col {
-                justify-content: flex-start;
-                border-right: none;
-                border-left: 3px solid #0056b3;
-                padding-right: 0;
-                padding-left: 15px;
-                padding-bottom: 15px;
-                padding-top: 0;
-            }
-
-            .project-content {
-                margin-left: 0;
-            }
-        }
-    </style>
 </head>
 <body data-background="interactive">
-    
+
+    <a class="skip-link" href="#main">Skip to content</a>
+
     <canvas id="webgl"></canvas>
 
     <nav aria-label="Primary">
@@ -246,86 +44,123 @@
         </div>
     </nav>
 
-    <main class="page-container">
+    <main id="main" class="page-container">
         <h1 class="page-title screenshot-gradient reveal-1">Projects</h1>
         <p class="page-intro reveal-2">
             These projects reflect my interest in building practical systems across AI, healthcare, industrial IoT, and software engineering. I focus on solutions that are technically strong, useful in real settings, and easy to understand.
         </p>
 
-        <div class="project-item reveal-2">
-            <div class="project-icon-col">
-                <div class="project-icon-circle"><i class="fas fa-brain"></i></div>
+        <div class="feed-item reveal-2">
+            <div class="icon-col">
+                <div class="icon-circle"><i class="fas fa-brain"></i></div>
             </div>
-            <div class="project-content">
-                <div class="project-meta">
-                    <span class="project-period">Aug - Dec 2025</span>
-                    <span class="project-type">AI Tooling</span>
+            <div class="card-content">
+                <div class="card-meta">
+                    <span class="pill">Aug - Dec 2025</span>
+                    <span class="pill pill-alt">AI Tooling</span>
                 </div>
-                <h3 class="project-title">Interactive Tool for Visualizing Software Architecture Evolution using LLM</h3>
-                <h4 class="project-venue">IIT Gandhinagar</h4>
-                <p class="project-desc">
+                <h2 class="card-title">Interactive Tool for Visualizing Software Architecture Evolution using LLM</h2>
+                <p class="card-venue">IIT Gandhinagar</p>
+                <p class="card-desc">
                     Developing a software Tool-Kit that extracts architecture-related information across multiple versions and creates an interactive timeline visualization to show how the architecture evolved and uses a LLM to summarize detected changes.
                 </p>
-                <a href="https://archviz-saner.streamlit.app/" target="_blank" rel="noopener noreferrer" class="proj-link">
-                    View Live Tool <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i>
+                <a href="https://archviz-saner.streamlit.app/" target="_blank" rel="noopener noreferrer" class="card-link">
+                    View Live Tool <i class="fas fa-external-link-alt" style="font-size: 0.8em;" aria-hidden="true"></i>
                 </a>
             </div>
         </div>
 
-        <div class="project-item reveal-3">
-            <div class="project-icon-col">
-                <div class="project-icon-circle"><i class="fas fa-desktop"></i></div>
+        <div class="feed-item reveal-3">
+            <div class="icon-col">
+                <div class="icon-circle"><i class="fas fa-desktop"></i></div>
             </div>
-            <div class="project-content">
-                <div class="project-meta">
-                    <span class="project-period">Jan - May 2023</span>
-                    <span class="project-type">Digital Twin</span>
+            <div class="card-content">
+                <div class="card-meta">
+                    <span class="pill">Jan - May 2023</span>
+                    <span class="pill pill-alt">Digital Twin</span>
                 </div>
-                <h3 class="project-title">Digital Twin Monitoring Software</h3>
-                <h4 class="project-venue">NIT Hamirpur</h4>
-                <p class="project-desc">
-                    Developed a digital twin monitoring software to visualize and monitor lab environments remotely. 
+                <h2 class="card-title">Digital Twin Monitoring Software</h2>
+                <p class="card-venue">NIT Hamirpur</p>
+                <p class="card-desc">
+                    Developed a digital twin monitoring software to visualize and monitor lab environments remotely.
                     The software uses real-time data from sensors to create a digital replica of the lab, enabling users to identify and resolve problems quickly and efficiently.
                 </p>
             </div>
         </div>
 
-        <div class="project-item reveal-4">
-            <div class="project-icon-col">
-                <div class="project-icon-circle"><i class="fas fa-network-wired"></i></div>
+        <div class="feed-item reveal-4">
+            <div class="icon-col">
+                <div class="icon-circle"><i class="fas fa-network-wired"></i></div>
             </div>
-            <div class="project-content">
-                <div class="project-meta">
-                    <span class="project-period">Aug - Dec 2022</span>
-                    <span class="project-type">Industrial IoT</span>
+            <div class="card-content">
+                <div class="card-meta">
+                    <span class="pill">Aug - Dec 2022</span>
+                    <span class="pill pill-alt">Industrial IoT</span>
                 </div>
-                <h3 class="project-title">Anomaly Detection in Industrial IoT</h3>
-                <h4 class="project-venue">NIT Hamirpur</h4>
-                <p class="project-desc">
-                    Developed a machine learning-based anomaly detection system for Industrial Internet of Things (IIoT) devices using Random Forest and LSTM algorithms. 
+                <h2 class="card-title">Anomaly Detection in Industrial IoT</h2>
+                <p class="card-venue">NIT Hamirpur</p>
+                <p class="card-desc">
+                    Developed a machine learning-based anomaly detection system for Industrial Internet of Things (IIoT) devices using Random Forest and LSTM algorithms.
                     The system is scalable, efficient, and designed for deployment on edge devices or in the cloud.
                 </p>
             </div>
         </div>
 
-        <div class="project-item reveal-5">
-            <div class="project-icon-col">
-                <div class="project-icon-circle"><i class="fas fa-x-ray"></i></div>
+        <div class="feed-item reveal-5">
+            <div class="icon-col">
+                <div class="icon-circle"><i class="fas fa-x-ray"></i></div>
             </div>
-            <div class="project-content">
-                <div class="project-meta">
-                    <span class="project-period">Oct - Dec 2022</span>
-                    <span class="project-type">Medical AI</span>
+            <div class="card-content">
+                <div class="card-meta">
+                    <span class="pill">Oct - Dec 2022</span>
+                    <span class="pill pill-alt">Medical AI</span>
                 </div>
-                <h3 class="project-title">COVID-19 Detection Model using Chest X-Rays</h3>
-                <h4 class="project-venue">NIT Hamirpur</h4>
-                <p class="project-desc">
+                <h2 class="card-title">COVID-19 Detection Model using Chest X-Rays</h2>
+                <p class="card-venue">NIT Hamirpur</p>
+                <p class="card-desc">
                     Utilized a Convolutional Neural Network (CNN) to extract features from chest X-rays and trained a robust model to predict the presence of COVID-19 with high accuracy.
                 </p>
             </div>
         </div>
 
     </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <a href="index.html" class="logo screenshot-gradient">Rakesh Porika.</a>
+                <p>PhD Scholar at IIT Gandhinagar researching brain-computer interfaces, machine learning, and AI for healthcare.</p>
+            </div>
+            <div>
+                <h2 class="footer-heading">Explore</h2>
+                <div class="footer-links">
+                    <a href="about.html">About</a>
+                    <a href="research.html">Research</a>
+                   
+                    <a href="experience.html">Experience</a>
+                    <a href="education.html">Education</a>
+                </div>
+            </div>
+            <div class="footer-contact">
+                <h2 class="footer-heading">Connect</h2>
+                <div class="social-container">
+                    <a href="https://scholar.google.com/citations?user=QpyvXnIAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="social-btn" title="Google Scholar" aria-label="Open Google Scholar profile">
+                        <i class="fas fa-graduation-cap"></i>
+                    </a>
+                    <a href="https://labs.iitgn.ac.in/haix/" target="_blank" rel="noopener noreferrer" class="social-btn" title="HAIx Lab" aria-label="Open HAIx Lab website">
+                        <i class="fas fa-brain"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/rakesh-porika9" target="_blank" rel="noopener noreferrer" class="social-btn" title="LinkedIn" aria-label="Open LinkedIn profile">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="mailto:porika.rakesh@iitgn.ac.in" class="social-btn" title="Email Me" aria-label="Send an email to Rakesh Porika">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">© 2026 Rakesh Porika · HAIx Lab, IIT Gandhinagar</div>
+    </footer>
 
     <script type="importmap">
         {

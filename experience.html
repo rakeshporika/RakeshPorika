@@ -5,309 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Experience | Rakesh Porika</title>
     <meta name="description" content="Academic experience, teaching roles, certifications, achievements, and volunteer activities for Rakesh Porika.">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Experience & Activities — Rakesh Porika">
+    <meta property="og:description" content="Teaching roles, certifications, achievements, and academic service.">
+    <meta property="og:image" content="https://rakeshporika.github.io/PIC.jpg">
+    <meta property="og:url" content="https://rakeshporika.github.io/experience.html">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%230056b3'/><stop offset='1' stop-color='%232ac8eb'/></linearGradient></defs><rect width='64' height='64' rx='14' fill='url(%23g)'/><text x='32' y='45' font-family='Arial' font-size='38' font-weight='700' fill='white' text-anchor='middle'>R</text></svg>">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 
     <style>
-        html, body {
-            overflow-y: auto !important;
-            height: auto !important;
-            font-family: 'Inter', sans-serif;
-        }
-
-        @keyframes softReveal {
-            0% { opacity: 0; transform: translateY(30px) scale(0.98); filter: blur(10px); }
-            100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
-        }
-
-        .reveal-1 { animation: softReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: 0.1s; opacity: 0; }
-        .reveal-2 { animation: softReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: 0.2s; opacity: 0; }
-        .reveal-3 { animation: softReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: 0.3s; opacity: 0; }
-        .reveal-4 { animation: softReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: 0.4s; opacity: 0; }
-        .reveal-5 { animation: softReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; animation-delay: 0.5s; opacity: 0; }
-
-        /* --- UNIFIED GRADIENT STYLE --- */
-        .screenshot-gradient {
-            background: linear-gradient(90deg, #0056b3 0%, #2ac8eb 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            -webkit-text-fill-color: transparent;
-            width: fit-content;
-        }
-
-        /* --- NAVIGATION STYLES --- */
-        .nav-item {
-            text-decoration: none;
-            color: rgb(29, 84, 133);
-            font-weight: 600;
-            font-size: 0.95rem;
-            margin-left: 2rem;
-            padding-bottom: 4px;
-            transition: all 0.2s ease-in-out;
-            border-bottom: 2px solid transparent;
-        }
-
-        .nav-item:hover {
-            background: linear-gradient(90deg, #0056b3 0%, #2ac8eb 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .nav-item.active {
-            color: #0056b3;
-            border-bottom: 2px solid #0056b3;
-        }
-
         .page-container {
             max-width: 1140px;
-            margin: 0 auto;
-            padding: 100px 20px 60px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .page-title {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .page-intro {
-            max-width: 780px;
-            font-size: 1.08rem;
-            line-height: 1.85;
-            color: #4d5b71;
-            margin-bottom: 2.5rem;
-        }
-
-        .experience-grid {
-            display: grid;
-            grid-template-columns: repeat(12, minmax(0, 1fr));
-            gap: 1.5rem;
-        }
-
-        .section-card {
-            grid-column: span 12;
-            background: rgba(255, 255, 255, 0.74);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            border-radius: 32px;
-            padding: 1.75rem;
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.05);
-        }
-
-        .section-card.compact {
-            grid-column: span 6;
-        }
-
-        .section-heading {
-            display: flex;
-            align-items: center;
-            gap: 0.85rem;
-            font-size: 1.65rem;
-            font-weight: 700;
-            margin: 0 0 0.7rem 0;
-        }
-
-        .section-icon {
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid rgba(0, 86, 179, 0.15);
-            background: rgba(255, 255, 255, 0.76);
-            color: #0056b3;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
-        }
-
-        .section-subtitle {
-            color: #58667d;
-            line-height: 1.75;
-            margin: 0 0 1.5rem 0;
-        }
-
-        .timeline {
-            display: grid;
-            gap: 1.1rem;
-        }
-
-        .timeline-item {
-            display: flex;
-            gap: 1.1rem;
-            align-items: stretch;
-        }
-
-        .timeline-marker {
-            width: 132px;
-            flex-shrink: 0;
-            padding-top: 0.75rem;
-        }
-
-        .timeline-pill {
-            display: inline-flex;
-            align-items: center;
-            padding: 0.5rem 0.9rem;
-            border-radius: 999px;
-            background: rgba(0, 86, 179, 0.1);
-            color: #0056b3;
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-
-        .timeline-content {
-            flex: 1;
-            background: rgba(255, 255, 255, 0.78);
-            border-radius: 24px;
-            padding: 1.35rem 1.4rem;
-            box-shadow: 0 8px 24px rgba(0, 86, 179, 0.06);
-            transition: transform 0.28s ease, background 0.28s ease, box-shadow 0.28s ease;
-        }
-
-        .timeline-content:hover {
-            transform: translateY(-3px);
-            background: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 14px 34px rgba(0, 86, 179, 0.12);
-        }
-
-        .entry-title {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            font-size: 1.22rem;
-            font-weight: 700;
-            color: #222;
-            margin: 0 0 0.45rem 0;
-            line-height: 1.3;
-        }
-
-        .entry-title i {
-            color: #0056b3;
-            width: 24px;
-            text-align: center;
-        }
-
-        .entry-org {
-            font-size: 1.05rem;
-            color: #555;
-            margin: 0 0 0.75rem 0;
-            font-weight: 500;
-            font-style: italic;
-        }
-
-        .entry-desc {
-            font-size: 1rem;
-            color: #444;
-            line-height: 1.7;
-            margin: 0;
-        }
-
-        .exp-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            text-decoration: none;
-            color: #0056b3;
-            font-weight: 600;
-            font-size: 0.9rem;
-            margin-top: 8px;
-            transition: color 0.2s;
-        }
-
-        .exp-link:hover {
-            text-decoration: underline;
-            color: #003d80;
-        }
-
-        .mini-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 1rem;
-        }
-
-        .mini-card {
-            background: rgba(255, 255, 255, 0.78);
-            border-radius: 24px;
-            padding: 1.3rem;
-            box-shadow: 0 8px 24px rgba(0, 86, 179, 0.06);
-            transition: transform 0.28s ease, background 0.28s ease;
-        }
-
-        .mini-card:hover {
-            transform: translateY(-3px);
-            background: rgba(255, 255, 255, 0.9);
-        }
-
-        .mini-top {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 0.8rem;
-            margin-bottom: 0.8rem;
-        }
-
-        .mini-badge {
-            display: inline-flex;
-            align-items: center;
-            padding: 0.4rem 0.75rem;
-            border-radius: 999px;
-            background: rgba(42, 200, 235, 0.12);
-            color: #0d7891;
-            font-size: 0.84rem;
-            font-weight: 600;
-        }
-
-        .mini-title {
-            font-size: 1.08rem;
-            font-weight: 700;
-            color: #22324a;
-            margin: 0 0 0.35rem 0;
-        }
-
-        .mini-org {
-            color: #5d6b82;
-            font-size: 0.96rem;
-            margin: 0 0 0.55rem 0;
-        }
-
-        .mini-desc {
-            color: #46556e;
-            line-height: 1.65;
-            margin: 0;
-        }
-
-        @media (max-width: 900px) {
-            .page-container {
-                padding-top: 110px;
-            }
-
-            .section-card.compact {
-                grid-column: span 12;
-            }
-
-            .timeline-item {
-                flex-direction: column;
-            }
-
-            .timeline-marker {
-                width: auto;
-                padding-top: 0;
-            }
-
-            .mini-grid {
-                grid-template-columns: 1fr;
-            }
         }
     </style>
 </head>
 <body data-background="interactive">
-    
+
+    <a class="skip-link" href="#main">Skip to content</a>
+
     <canvas id="webgl"></canvas>
 
     <nav aria-label="Primary">
@@ -327,7 +50,7 @@
         </div>
     </nav>
 
-    <main class="page-container">
+    <main id="main" class="page-container">
         <h1 class="page-title screenshot-gradient reveal-1">Experience & Activities</h1>
         <p class="page-intro reveal-2">
             My experience spans teaching, mentoring, technical training, competitive achievements, and academic service. I enjoy roles where I can explain ideas clearly, support others, and contribute to communities around computing, healthcare, and emerging technologies.
@@ -399,23 +122,23 @@
                     <article class="mini-card">
                         <div class="mini-top">
                             <span class="mini-badge">Jan 2025</span>
-                            <i class="fas fa-dna" style="color:#0056b3;"></i>
+                            <i class="fas fa-dna"></i>
                         </div>
                         <h3 class="mini-title">Bioinformatics Foundation</h3>
                         <p class="mini-org">Udemy</p>
                         <p class="mini-desc">Built a stronger grounding in bioinformatics concepts, tools, and analytical thinking for computational biology applications.</p>
-                        <a href="https://drive.google.com/file/d/1NBn0jitQsgd3voXUcmbdys3DsyQn-Frr/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="exp-link">View Certificate <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
+                        <a href="https://drive.google.com/file/d/1NBn0jitQsgd3voXUcmbdys3DsyQn-Frr/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="card-link">View Certificate <i class="fas fa-external-link-alt" style="font-size: 0.8em;" aria-hidden="true"></i></a>
                     </article>
 
                     <article class="mini-card">
                         <div class="mini-top">
                             <span class="mini-badge">Aug - Sep 2022</span>
-                            <i class="fas fa-cloud" style="color:#0056b3;"></i>
+                            <i class="fas fa-cloud"></i>
                         </div>
                         <h3 class="mini-title">Certified Cloud Computing Trainee</h3>
                         <p class="mini-org">Acmegrade, IIT Bombay</p>
                         <p class="mini-desc">Completed intensive exposure to cloud infrastructure, services, and deployment-oriented thinking.</p>
-                        <a href="https://drive.google.com/file/d/1m9t3AzptlVoq4H8zt2Vyy14WbhMEGglP/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="exp-link">View Certificate <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
+                        <a href="https://drive.google.com/file/d/1m9t3AzptlVoq4H8zt2Vyy14WbhMEGglP/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="card-link">View Certificate <i class="fas fa-external-link-alt" style="font-size: 0.8em;" aria-hidden="true"></i></a>
                     </article>
                 </div>
             </section>
@@ -430,29 +153,29 @@
                     <article class="mini-card">
                         <div class="mini-top">
                             <span class="mini-badge">2024</span>
-                            <i class="fas fa-user-graduate" style="color:#0056b3;"></i>
+                            <i class="fas fa-user-graduate"></i>
                         </div>
                         <h3 class="mini-title">PhD Scholar Selection</h3>
                         <p class="mini-org">IISER Pune, Maharashtra</p>
                         <p class="mini-desc">Selected as a full-time PhD scholar, reflecting research readiness and academic potential.</p>
-                        <a href="https://drive.google.com/file/d/1updAOtijoNXXOE431fkO_hHqioA9kMCW/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="exp-link">View Proof <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
+                        <a href="https://drive.google.com/file/d/1updAOtijoNXXOE431fkO_hHqioA9kMCW/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="card-link">View Proof <i class="fas fa-external-link-alt" style="font-size: 0.8em;" aria-hidden="true"></i></a>
                     </article>
 
                     <article class="mini-card">
                         <div class="mini-top">
                             <span class="mini-badge">2024</span>
-                            <i class="fas fa-chalkboard-teacher" style="color:#0056b3;"></i>
+                            <i class="fas fa-chalkboard-teacher"></i>
                         </div>
                         <h3 class="mini-title">Assistant Professor Selection</h3>
                         <p class="mini-org">Galgotias University, UP</p>
                         <p class="mini-desc">Selected for the position of Assistant Professor, highlighting teaching and technical competence.</p>
-                        <a href="https://drive.google.com/file/d/1g5uvwcEr0TOuh5V40NOdOdd1ia7Gd0aG/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="exp-link">View Proof <i class="fas fa-external-link-alt" style="font-size: 0.8em;"></i></a>
+                        <a href="https://drive.google.com/file/d/1g5uvwcEr0TOuh5V40NOdOdd1ia7Gd0aG/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="card-link">View Proof <i class="fas fa-external-link-alt" style="font-size: 0.8em;" aria-hidden="true"></i></a>
                     </article>
 
                     <article class="mini-card">
                         <div class="mini-top">
                             <span class="mini-badge">2023</span>
-                            <i class="fas fa-train" style="color:#0056b3;"></i>
+                            <i class="fas fa-train"></i>
                         </div>
                         <h3 class="mini-title">Senior Technical Associate Selection</h3>
                         <p class="mini-org">South Western Railways, Indian Railways</p>
@@ -462,7 +185,7 @@
                     <article class="mini-card">
                         <div class="mini-top">
                             <span class="mini-badge">2023</span>
-                            <i class="fas fa-medal" style="color:#0056b3;"></i>
+                            <i class="fas fa-medal"></i>
                         </div>
                         <h3 class="mini-title">GATE Qualified</h3>
                         <p class="mini-org">Graduate Aptitude Test in Engineering</p>
@@ -524,6 +247,43 @@
         </div>
 
     </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <a href="index.html" class="logo screenshot-gradient">Rakesh Porika.</a>
+                <p>PhD Scholar at IIT Gandhinagar researching brain-computer interfaces, machine learning, and AI for healthcare.</p>
+            </div>
+            <div>
+                <h2 class="footer-heading">Explore</h2>
+                <div class="footer-links">
+                    <a href="about.html">About</a>
+                    <a href="research.html">Research</a>
+                    <a href="projects.html">Projects</a>
+                   
+                    <a href="education.html">Education</a>
+                </div>
+            </div>
+            <div class="footer-contact">
+                <h2 class="footer-heading">Connect</h2>
+                <div class="social-container">
+                    <a href="https://scholar.google.com/citations?user=QpyvXnIAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="social-btn" title="Google Scholar" aria-label="Open Google Scholar profile">
+                        <i class="fas fa-graduation-cap"></i>
+                    </a>
+                    <a href="https://labs.iitgn.ac.in/haix/" target="_blank" rel="noopener noreferrer" class="social-btn" title="HAIx Lab" aria-label="Open HAIx Lab website">
+                        <i class="fas fa-brain"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/rakesh-porika9" target="_blank" rel="noopener noreferrer" class="social-btn" title="LinkedIn" aria-label="Open LinkedIn profile">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="mailto:porika.rakesh@iitgn.ac.in" class="social-btn" title="Email Me" aria-label="Send an email to Rakesh Porika">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">© 2026 Rakesh Porika · HAIx Lab, IIT Gandhinagar</div>
+    </footer>
 
     <script type="importmap">
         {
